@@ -1,0 +1,488 @@
+{
+  "pdb_id": "8BPQ",
+  "source_structure": "PDB 8BPQ chain A (2.30 A X-ray, UniProt P77258)",
+  "contact_cutoffs_A": {
+    "pocket_radius": 5.0,
+    "fmn_binding_radius": 3.5
+  },
+  "uniprot_annotations": {
+    "FMN_binding_residues": [
+      101,
+      234,
+      324,
+      325
+    ],
+    "proton_donor_residues": [
+      187
+    ],
+    "all_catalytic": [
+      101,
+      187,
+      234,
+      324,
+      325
+    ]
+  },
+  "summary": {
+    "n_pocket_residues": 26,
+    "n_fmn_binding": 13,
+    "n_first_shell_catalytic": 13,
+    "n_second_shell_candidates": 6
+  },
+  "pocket_residues": [
+    {
+      "residue_id": 27,
+      "residue_name": "THR",
+      "chain": "A",
+      "dist_to_FMN_A": 2.61,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "polar"
+    },
+    {
+      "residue_id": 25,
+      "residue_name": "PRO",
+      "chain": "A",
+      "dist_to_FMN_A": 2.64,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 325,
+      "residue_name": "ARG",
+      "chain": "A",
+      "dist_to_FMN_A": 2.65,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 101,
+      "residue_name": "GLN",
+      "chain": "A",
+      "dist_to_FMN_A": 2.66,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "polar"
+    },
+    {
+      "residue_id": 324,
+      "residue_name": "GLY",
+      "chain": "A",
+      "dist_to_FMN_A": 2.79,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 234,
+      "residue_name": "ARG",
+      "chain": "A",
+      "dist_to_FMN_A": 2.89,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 182,
+      "residue_name": "HIS",
+      "chain": "A",
+      "dist_to_FMN_A": 3.01,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 352,
+      "residue_name": "TYR",
+      "chain": "A",
+      "dist_to_FMN_A": 3.15,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 185,
+      "residue_name": "HIS",
+      "chain": "A",
+      "dist_to_FMN_A": 3.21,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 59,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 3.22,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 303,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 3.29,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 302,
+      "residue_name": "GLY",
+      "chain": "A",
+      "dist_to_FMN_A": 3.38,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 26,
+      "residue_name": "LEU",
+      "chain": "A",
+      "dist_to_FMN_A": 3.43,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 24,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 3.52,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 276,
+      "residue_name": "TRP",
+      "chain": "A",
+      "dist_to_FMN_A": 3.59,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 323,
+      "residue_name": "PHE",
+      "chain": "A",
+      "dist_to_FMN_A": 3.66,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 272,
+      "residue_name": "SER",
+      "chain": "A",
+      "dist_to_FMN_A": 3.94,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "polar"
+    },
+    {
+      "residue_id": 328,
+      "residue_name": "ILE",
+      "chain": "A",
+      "dist_to_FMN_A": 3.97,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 351,
+      "residue_name": "PHE",
+      "chain": "A",
+      "dist_to_FMN_A": 4.11,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 322,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 4.22,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 58,
+      "residue_name": "GLU",
+      "chain": "A",
+      "dist_to_FMN_A": 4.36,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_negative"
+    },
+    {
+      "residue_id": 304,
+      "residue_name": "TYR",
+      "chain": "A",
+      "dist_to_FMN_A": 4.5,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 28,
+      "residue_name": "ARG",
+      "chain": "A",
+      "dist_to_FMN_A": 4.55,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 301,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 4.56,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 180,
+      "residue_name": "GLU",
+      "chain": "A",
+      "dist_to_FMN_A": 4.87,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_negative"
+    },
+    {
+      "residue_id": 103,
+      "residue_name": "TRP",
+      "chain": "A",
+      "dist_to_FMN_A": 4.95,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    }
+  ],
+  "first_shell_catalytic_in_pocket": [
+    {
+      "residue_id": 27,
+      "residue_name": "THR",
+      "chain": "A",
+      "dist_to_FMN_A": 2.61,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "polar"
+    },
+    {
+      "residue_id": 25,
+      "residue_name": "PRO",
+      "chain": "A",
+      "dist_to_FMN_A": 2.64,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 325,
+      "residue_name": "ARG",
+      "chain": "A",
+      "dist_to_FMN_A": 2.65,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 101,
+      "residue_name": "GLN",
+      "chain": "A",
+      "dist_to_FMN_A": 2.66,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "polar"
+    },
+    {
+      "residue_id": 324,
+      "residue_name": "GLY",
+      "chain": "A",
+      "dist_to_FMN_A": 2.79,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 234,
+      "residue_name": "ARG",
+      "chain": "A",
+      "dist_to_FMN_A": 2.89,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 182,
+      "residue_name": "HIS",
+      "chain": "A",
+      "dist_to_FMN_A": 3.01,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 352,
+      "residue_name": "TYR",
+      "chain": "A",
+      "dist_to_FMN_A": 3.15,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 185,
+      "residue_name": "HIS",
+      "chain": "A",
+      "dist_to_FMN_A": 3.21,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "charged_positive"
+    },
+    {
+      "residue_id": 59,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 3.22,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 303,
+      "residue_name": "ALA",
+      "chain": "A",
+      "dist_to_FMN_A": 3.29,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 302,
+      "residue_name": "GLY",
+      "chain": "A",
+      "dist_to_FMN_A": 3.38,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "other"
+    },
+    {
+      "residue_id": 26,
+      "residue_name": "LEU",
+      "chain": "A",
+      "dist_to_FMN_A": 3.43,
+      "is_fmn_binding": true,
+      "is_first_shell_catalytic": true,
+      "is_second_shell_candidate": false,
+      "side_chain_class": "aromatic_hydrophobic"
+    }
+  ],
+  "second_shell_candidates": [
+    {
+      "residue_id": 276,
+      "residue_name": "TRP",
+      "chain": "A",
+      "dist_to_FMN_A": 3.59,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 323,
+      "residue_name": "PHE",
+      "chain": "A",
+      "dist_to_FMN_A": 3.66,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 328,
+      "residue_name": "ILE",
+      "chain": "A",
+      "dist_to_FMN_A": 3.97,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 351,
+      "residue_name": "PHE",
+      "chain": "A",
+      "dist_to_FMN_A": 4.11,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 304,
+      "residue_name": "TYR",
+      "chain": "A",
+      "dist_to_FMN_A": 4.5,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    },
+    {
+      "residue_id": 103,
+      "residue_name": "TRP",
+      "chain": "A",
+      "dist_to_FMN_A": 4.95,
+      "is_fmn_binding": false,
+      "is_first_shell_catalytic": false,
+      "is_second_shell_candidate": true,
+      "side_chain_class": "aromatic_hydrophobic"
+    }
+  ]
+}

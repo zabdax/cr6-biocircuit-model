@@ -1,0 +1,2 @@
+note
+"No Vina scores: AutoDock Vina 1.2.5 does not support the Cr atom type (Vina's atom type set is C, A, N, O, P, S, H, F, I, NA, OA, SA, HD, Mg, Mn, Zn, Ca, Fe, Cl, Br). The geometric placement in nema_docking_results.csv is the primary result."

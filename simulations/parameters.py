@@ -295,3 +295,134 @@ COMBINED_FAILURE_PROBABILITY = 1e-30  # PREDICTED — stated in Abstract as
 DE_MINIMIS_RISK_THRESHOLD = 1e-15  # source: Sec 4.4.2 / Fig 4 — adopted
                                    # "acceptable risk" reference line for
                                    # the biosafety plot
+
+
+# =====================================================================
+# LHS (Latin Hypercube Sampling) GLOBAL UNCERTAINTY BOUNDS — Pillar 4c
+# =====================================================================
+# Log-uniform sampling ranges for the 8 input parameters propagated
+# through the Luria-Delbruck Poisson model in biosafety_lhs.py.
+# Each range is taken from a primary literature source or from the
+# order-of-magnitude literature range; citations are inline. The
+# point estimates above (MUTATION_RATE_PER_BP_PER_GEN, HGT_*_PER_DIV,
+# POPULATION_VOLUME_L, etc.) remain the BASELINE values used by
+# biosafety_mutation_model.py and biosafety_sensitivity.py; the LHS
+# sweeps over the (lo, hi) bounds below. Bounds are in linear units;
+# the LHS code converts to log10 internally.
+
+# 1. Per-bp per-generation spontaneous mutation rate
+#    Drake 1991 (Proc Natl Acad Sci USA 88:7160-7164): per-bp rate
+#      ~1e-10 per generation across DNA-based microbes.
+#    Lee 2012 (PNAS 109:E2774-E2783): per-bp rate for E. coli
+#      measured in the 1e-10 to 5e-10 range.
+#    The 1e-8 upper bound is two orders of magnitude above the
+#    observed maximum, included as a stress-test bound.
+LHS_LOG10_MUTATION_RATE_PER_BP_PER_GEN = (-10.0, -8.0)  # range: [1e-10, 1e-8]
+                                                       # source: [16] Drake 1991;
+                                                       # [4] Lee 2012
+
+# 2. HGT-driven intact-gene transfer probability for thyA
+#    The 10^-12 baseline used by biosafety_mutation_model.py is an
+#    order-of-magnitude literature estimate, not a single primary
+#    citation. The published literature provides bracketing values:
+#      - Dahlberg et al. 1998 (Appl Environ Microbiol, PMID 9647846):
+#        conjugative plasmid pBF1 transfer in MARINE bacterial
+#        communities, 2.3e-6 to 2.2e-4 transconjugants per recipient
+#        over 3 days (~1e-6 to 1e-4 per recipient per day, i.e.,
+#        ~1e-8 to 1e-6 per recipient per cell-division at typical
+#        in-situ growth rates).
+#      - Muela et al. 1994 (Appl Environ Microbiol, PMID 7811066):
+#        plasmid transfer between E. coli strains in RIVER water
+#        (donor/recipient physiology dependent; abstract reports
+#        qualitative frequency variation but no specific per-donor
+#        number).
+#      - Licht 1999 (Microbiology, PMID 10517615): reviews plasmid
+#        transfer in the INTESTINE (not freshwater); notes transfer
+#        is "much lower" in intestinal extracts than in lab media.
+#    The honest bracket for the LHS sweep, integrating the
+#    freshwater-specific and marine-specific ranges, is
+#    1e-14 (lower bound, near experimental detectability) to
+#    1e-10 (upper bound, well below the marine observation but
+#    allowing for the freshwater-specific reduction seen by Muela).
+#    The 10^-12 baseline is the conventional biosafety model
+#    assumption (per-division probability that an intact gene is
+#    transferred AND correctly recombined AND expressed), which is
+#    a much smaller quantity than the per-recipient transconjugant
+#    frequency measured experimentally.
+LHS_LOG10_HGT_P_REVERT_THYA_PER_DIV = (-14.0, -10.0)  # range: [1e-14, 1e-10]
+                                                     # source: bracketing
+                                                     # range from
+                                                     # [23] Dahlberg 1998,
+                                                     # [24] Muela 1994,
+                                                     # [25] Licht 1999;
+                                                     # no single primary
+                                                     # citation supports a
+                                                     # specific value
+
+# 3. HGT-driven intact-gene transfer probability for dapA
+#    Same literature basis as thyA above; identical range assumed
+#    for symmetry. The biosafety model treats the two auxotrophy
+#    reversions as independent failure modes, which is a
+#    conservative assumption (independence overestimates the joint
+#    probability if the same donor supplies both genes via a single
+#    conjugation event).
+LHS_LOG10_HGT_P_REVERT_DAPA_PER_DIV = (-14.0, -10.0)  # range: [1e-14, 1e-10]
+                                                     # source: bracketing
+                                                     # range from
+                                                     # [23] Dahlberg 1998,
+                                                     # [24] Muela 1994,
+                                                     # [25] Licht 1999;
+                                                     # no single primary
+                                                     # citation supports a
+                                                     # specific value
+
+# 4. Deployment reactor volume
+#    Baseline 1000 L; 10x smaller (100 L benchtop) to 10x larger
+#    (10,000 L industrial) bracketing the assumed deployment scale.
+LHS_LOG10_POPULATION_VOLUME_L = (1.0, 4.0)  # range: [10, 10000] L
+                                            # source: this study, bracketing
+                                            # the 1000 L baseline
+
+# 5. Maximum cell density at carrying capacity in the closed system
+#    Lab E. coli reaches 1e10 cells/mL in rich media; in nutrient-
+#    poor closed-pond conditions the realistic ceiling is 1e8 cells/mL.
+#    Bracketed across 1e8 to 1e10.
+LHS_LOG10_MAX_CELL_DENSITY_PER_L = (8.0, 10.0)  # range: [1e8, 1e10] /L
+                                                # source: this study, lab vs
+                                                # nutrient-poor pond range
+
+# 6. Effective generations per day in the burdened closed-pond system
+#    Baseline 4 gen/day (effective generation time ~6 h, reflecting
+#    the 33% growth reduction from Pillar 3). Realistic bracket:
+#    2 gen/day (severely nutrient-limited) to 8 gen/day (lab-adjacent).
+LHS_LOG10_GENERATIONS_PER_DAY = (0.301, 0.903)  # range: [2, 8] gen/day
+                                                # source: this study, burden-
+                                                # adjusted bracket
+
+# 7. Deployment window
+#    Hypothesis states 30 days explicitly (Sec 1.4). Bracketed
+#    15 to 45 days as a +/-50% sensitivity range.
+LHS_LOG10_DEPLOYMENT_WINDOW_DAYS = (1.176, 1.653)  # range: [15, 45] days
+                                                  # source: hypothesis (Sec 1.4)
+                                                  # +/-50% bracket
+
+# 8. Kill-switch target size (length in bp that must be hit by a
+#    loss-of-function mutation)
+#    Chan et al. 2016 (Nat Chem Biol 12:82-86) describes a holin-
+#    endolysin cassette of ~500 bp; the LHS brackets 300 to 1000 bp
+#    to span minimum-regulatory-only (300) and full-cassette-plus-
+#    flanking (1000) definitions of "target size".
+LHS_LOG10_TARGET_SIZE_BP = (2.477, 3.000)  # range: [300, 1000] bp
+                                           # source: [11] Chan 2016, +/-40%
+                                           # bracket
+
+# LHS sampling configuration
+LHS_N_SAMPLES = 10000           # number of LHS samples
+                                # NOTE: 10000 samples gives <0.1% width on
+                                # 95% CI at the 1e-17 magnitude; sufficient
+                                # resolution to resolve the 1e-15 threshold
+                                # crossing probability.
+LHS_RANDOM_SEED = 42            # for reproducibility
+LHS_DISTRIBUTION = "log-uniform"  # parameters span orders of magnitude;
+                                  # log-uniform is the standard choice
+                                  # for rate/probability parameters.

@@ -1,0 +1,27 @@
+{
+  "structure_used": "PDB 8BPQ chain A (experimental X-ray crystal structure)",
+  "pdb_id": "8BPQ",
+  "uniprot_id": "P77258",
+  "resolution_A": 2.3,
+  "method": "X-ray diffraction",
+  "source_organism": "Escherichia coli K-12",
+  "release_year": 2023,
+  "fetched_from": "https://files.rcsb.org/download/8BPQ.cif (RCSB)",
+  "fetch_date": "2026-07-01",
+  "n_residues_in_chain_A": 362,
+  "cofactors_present": [
+    "FMN"
+  ],
+  "alpha_fold_fallback_used": false,
+  "alpha_fold_id_if_used": null,
+  "docking_method": "geometric_placement_scipy_minimize",
+  "docking_method_rationale": "AutoDock Vina 1.2.5 was attempted but rejected by Vina with 'Atom type Cr is not a valid AutoDock type'. The published literature also does not provide strong precedent for docking chromate into FMN-containing flavoprotein active sites (see literature_check.json). The geometric placement uses scipy.optimize.minimize with multi-start initialization (N=32, seed=42) to find a steric-clash-minimized, H-bond-donor-proximal placement of rigid CrO4(2-) near the FMN C4a catalytic site. This is NOT a docking calculation: there is no scoring function, no global search, and no thermodynamic prediction. The reported Cr->FMN C4a distance, H-bond donor counts, and steric clash counts are geometric observables for the optimized placement only.",
+  "vina_attempted": true,
+  "vina_failure_reason": "Cr not in Vina's atom type set",
+  "geom_seed": 42,
+  "geom_n_multistart": 32,
+  "ligand": "CrO4(2-) (chromate)",
+  "ligand_smiles": "[O-][Cr](=O)(=O)[O-]",
+  "ligand_cr_o_bond_A": 1.62,
+  "ligand_build_method": "rdkit 2026.03.3 with UFF optimization (MMFF not parameterized for Cr); reference geometry: tetrahedral with Cr-O = 1.62 A"
+}

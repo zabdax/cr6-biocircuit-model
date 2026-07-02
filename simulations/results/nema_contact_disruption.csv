@@ -1,0 +1,7 @@
+residue_id,residue_name,chain,n_contacts_wt,n_contacts_ala,contact_disruption_score,weighted_score,score_band
+328,ILE,A,160,101,0.3688,0.333,intermediate
+351,PHE,A,192,116,0.3958,0.3627,intermediate
+323,PHE,A,160,95,0.4062,0.3687,intermediate
+276,TRP,A,141,75,0.4681,0.4243,intermediate
+103,TRP,A,227,99,0.5639,0.5428,intermediate
+304,TYR,A,204,72,0.6471,0.6151,costly

@@ -1,0 +1,20 @@
+{
+  "decision": "exploratory_positioning",
+  "q1_docking_papers": 0,
+  "q2_direct_fmn_papers": 0,
+  "q2_indirect_papers": 2,
+  "q1_unique_pmids": 0,
+  "q2_unique_pmids": 9,
+  "q1_pmids": [],
+  "q2_pmids": [
+    "40712361",
+    "34171730",
+    "33851826",
+    "25199606",
+    "26377775",
+    "22879982",
+    "15250887",
+    "31044312",
+    "18263719"
+  ]
+}

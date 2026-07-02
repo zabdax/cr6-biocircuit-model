@@ -1,0 +1,3 @@
+variant,method,cr_to_fmn_c4a_A,cr_to_fmn_n5_A,hbond_donor_count,hbond_donor_residues,steric_clash_count,min_cr_protein_dist_A
+WT,geometric_placement_scipy_minimize,2.885506706930858,3.4397903914286547,7,PRO25:CA;LEU26:N;THR27:N;SER57:C;GLU58:N;ALA59:N;GLN101:OE1,1,2.0264118631934602
+ILE328ALA,geometric_placement_scipy_minimize,2.885506706930858,3.4397903914286547,7,PRO25:CA;LEU26:N;THR27:N;SER57:C;GLU58:N;ALA59:N;GLN101:OE1,1,2.0264118631934602
