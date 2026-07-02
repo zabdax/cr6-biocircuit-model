@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 1280 720" width="1280" height="720"
+      aria-label="STRATA story: a sleeping engineered organism in a biotech lab detects incoming hexavalent chromium, wakes up, biosenses and reduces it to trivalent chromium via NemA, dissolves on kill-switch activation, and a new organism hatches to resume monitoring -- an 18-second seamless pixel-art loop."
+      role="img">
+  <desc>A sleeping engineered BMO in a biotech lab detects incoming Cr(VI), awakens and biosenses it, reduces it to Cr(III) via NemA enzyme, then triggers the kill switch and dissolves. A new organism hatches from the incubation chamber to resume monitoring. The animation runs in a seamless 18-second loop with continuous ambient motion.</desc>
+
+  <defs>
+    <!-- Pixel grid pattern for floor tiles -->
+    <pattern id="floorTile" width="96" height="96" patternUnits="userSpaceOnUse">
+      <rect width="96" height="96" fill="#0e1a2b"/>
+      <rect y="0" height="4" width="96" fill="#1b3157"/>
+      <rect y="40" height="4" width="96" fill="#13243d"/>
+      <rect y="80" height="4" width="96" fill="#13243d"/>
+      <rect y="44" height="4" width="96" fill="#1b3157"/>
+      <rect y="84" height="4" width="96" fill="#1b3157"/>
+    </pattern>
+
+    <!-- ========== STRATA SPRITE ========== -->
+    <symbol id="strata_sleep" viewBox="0 0 96 96">
+      <!-- Body (14x16 cells) -->
+      <g fill="#1b3a6b"><rect x="36" y="20" width="24" height="56"/><rect x="32" y="24" width="4" height="48"/><rect x="60" y="24" width="4" height="48"/></g>
+      <g fill="#5edcff"><rect x="40" y="24" width="16" height="48"/></g>
+      <g fill="#bfe9ff"><rect x="40" y="24" width="4" height="4"/></g>
+      <!-- Legs -->
+      <g fill="#1b3a6b"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <g fill="#4ab8e0"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <!-- Closed eyes (sleeping) -->
+      <g fill="#bfe9ff"><rect x="42" y="32" width="4" height="2"/><rect x="50" y="32" width="4" height="2"/></g>
+      <!-- Antenna base -->
+      <g fill="#1b3a6b"><rect x="46" y="16" width="4" height="8"/></g>
+      <g fill="#5edcff"><rect x="46" y="16" width="4" height="4"/></g>
+      <!-- Antenna head (drooped) -->
+      <g fill="#5edcff"><rect x="44" y="12" width="8" height="4"/></g>
+      <!-- Biosensor (dim) -->
+      <g fill="#1b3a6b"><rect x="44" y="48" width="8" height="8"/></g>
+      <g fill="#2a8060" class="biosensor-glow"><rect x="46" y="50" width="4" height="4" opacity="0.4"/></g>
+      <!-- Mouth (peaceful line) -->
+      <g fill="#bfe9ff"><rect x="46" y="42" width="4" height="2"/></g>
+    </symbol>
+
+    <symbol id="strata_alert" viewBox="0 0 96 96">
+      <!-- Body -->
+      <g fill="#1b3a6b"><rect x="36" y="20" width="24" height="56"/><rect x="32" y="24" width="4" height="48"/><rect x="60" y="24" width="4" height="48"/></g>
+      <g fill="#5edcff"><rect x="40" y="24" width="16" height="48"/></g>
+      <g fill="#bfe9ff"><rect x="40" y="24" width="4" height="4"/></g>
+      <!-- Legs -->
+      <g fill="#1b3a6b"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <g fill="#4ab8e0"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <!-- Wide eyes -->
+      <g fill="#ffffff"><rect x="42" y="30" width="6" height="8"/><rect x="48" y="30" width="6" height="8"/></g>
+      <g fill="#1b3a6b" class="pupil-left"><rect x="44" y="32" width="2" height="4"/></g>
+      <g fill="#1b3a6b" class="pupil-right"><rect x="50" y="32" width="2" height="4"/></g>
+      <!-- Raised eyebrows -->
+      <g fill="#bfe9ff"><rect x="42" y="26" width="6" height="2"/><rect x="48" y="26" width="6" height="2"/></g>
+      <!-- Antenna (perked) -->
+      <g fill="#1b3a6b"><rect x="46" y="12" width="4" height="12"/></g>
+      <g fill="#5edcff"><rect x="46" y="8" width="4" height="8"/></g>
+      <g fill="#ffff00" class="antenna-tip"><rect x="45" y="4" width="6" height="4"/></g>
+      <!-- Biosensor (bright, pulsing) -->
+      <g fill="#1b3a6b"><rect x="44" y="48" width="8" height="8"/></g>
+      <g fill="#39ff7a" class="biosensor-glow"><rect x="46" y="50" width="4" height="4" opacity="0.9"/></g>
+      <!-- Mouth (O shape - alert) -->
+      <g fill="#1b3a6b"><rect x="45" y="42" width="6" height="6"/></g>
+      <g fill="#bfe9ff"><rect x="46" y="43" width="4" height="4"/></g>
+    </symbol>
+
+    <symbol id="strata_run" viewBox="0 0 96 96">
+      <!-- Body (tilted) -->
+      <g fill="#1b3a6b" transform="rotate(-4, 48, 48)"><rect x="36" y="20" width="24" height="52"/><rect x="32" y="24" width="4" height="44"/><rect x="60" y="24" width="4" height="44"/></g>
+      <g fill="#5edcff" transform="rotate(-4, 48, 48)"><rect x="40" y="24" width="16" height="44"/></g>
+      <g fill="#bfe9ff" transform="rotate(-4, 48, 48)"><rect x="40" y="24" width="4" height="4"/></g>
+      <!-- Running legs -->
+      <g fill="#1b3a6b"><rect x="38" y="68" width="4" height="16" transform="rotate(15, 40, 76)"/><rect x="54" y="68" width="4" height="16" transform="rotate(-15, 56, 76)"/></g>
+      <g fill="#4ab8e0"><rect x="38" y="68" width="4" height="16" transform="rotate(15, 40, 76)"/><rect x="54" y="68" width="4" height="16" transform="rotate(-15, 56, 76)"/></g>
+      <!-- Wide eyes -->
+      <g fill="#ffffff"><rect x="42" y="30" width="6" height="8"/><rect x="48" y="30" width="6" height="8"/></g>
+      <g fill="#1b3a6b" class="pupil-left"><rect x="44" y="32" width="2" height="4"/></g>
+      <g fill="#1b3a6b" class="pupil-right"><rect x="50" y="32" width="2" height="4"/></g>
+      <!-- Raised eyebrows -->
+      <g fill="#bfe9ff"><rect x="42" y="26" width="6" height="2"/><rect x="48" y="26" width="6" height="2"/></g>
+      <!-- Antenna (perked) -->
+      <g fill="#1b3a6b"><rect x="46" y="12" width="4" height="12"/></g>
+      <g fill="#5edcff"><rect x="46" y="8" width="4" height="8"/></g>
+      <g fill="#ffff00" class="antenna-tip"><rect x="45" y="4" width="6" height="4"/></g>
+      <!-- Biosensor (bright) -->
+      <g fill="#1b3a6b"><rect x="44" y="48" width="8" height="8"/></g>
+      <g fill="#39ff7a" class="biosensor-glow"><rect x="46" y="50" width="4" height="4" opacity="0.9"/></g>
+      <!-- Mouth (determined) -->
+      <g fill="#bfe9ff"><rect x="45" y="42" width="6" height="2"/></g>
+    </symbol>
+
+    <symbol id="strata_wave" viewBox="0 0 96 96">
+      <!-- Body -->
+      <g fill="#1b3a6b"><rect x="36" y="20" width="24" height="56"/><rect x="32" y="24" width="4" height="48"/><rect x="60" y="24" width="4" height="48"/></g>
+      <g fill="#5edcff"><rect x="40" y="24" width="16" height="48"/></g>
+      <g fill="#bfe9ff"><rect x="40" y="24" width="4" height="4"/></g>
+      <!-- Legs -->
+      <g fill="#1b3a6b"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <g fill="#4ab8e0"><rect x="40" y="72" width="4" height="12"/><rect x="52" y="72" width="4" height="12"/></g>
+      <!-- Eyes -->
+      <g fill="#ffffff"><rect x="42" y="30" width="6" height="8"/><rect x="48" y="30" width="6" height="8"/></g>
+      <g fill="#1b3a6b"><rect x="44" y="32" width="2" height="4"/><rect x="50" y="32" width="2" height="4"/></g>
+      <!-- Antenna -->
+      <g fill="#1b3a6b"><rect x="46" y="12" width="4" height="12"/></g>
+      <g fill="#5edcff"><rect x="46" y="8" width="4" height="8"/></g>
+      <g fill="#ffff00" class="antenna-tip"><rect x="45" y="4" width="6" height="4"/></g>
+      <!-- Raised arm (waving) -->
+      <g fill="#1b3a6b"><rect x="60" y="24" width="4" height="20"/><rect x="60" y="16" width="4" height="8"/></g>
+      <g fill="#5edcff"><rect x="60" y="20" width="4" height="4"/><rect x="60" y="12" width="4" height="8"/></g>
+      <!-- Biosensor -->
+      <g fill="#1b3a6b"><rect x="44" y="48" width="8" height="8"/></g>
+      <g fill="#39ff7a" class="biosensor-glow"><rect x="46" y="50" width="4" height="4" opacity="0.7"/></g>
+      <!-- Mouth (smile) -->
+      <g fill="#bfe9ff"><rect x="44" y="42" width="8" height="2"/><rect x="44" y="40" width="2" height="2"/><rect x="50" y="40" width="2" height="2"/></g>
+    </symbol>
+
+    <symbol id="strata_dissolve" viewBox="0 0 96 96">
+      <!-- Fading body -->
+      <g fill="#1b3a6b" class="dissolve-outline"><rect x="36" y="20" width="24" height="56"/><rect x="32" y="24" width="4" height="48"/><rect x="60" y="24" width="4" height="48"/></g>
+      <g fill="#5edcff" class="dissolve-body"><rect x="40" y="24" width="16" height="48"/></g>
+      <g fill="#bfe9ff" class="dissolve-highlight"><rect x="40" y="24" width="4" height="4"/></g>
+      <!-- Dissolving particles -->
+      <g fill="#bfe9ff" class="particle p1"><rect x="40" y="40" width="4" height="4" opacity="0.8"/></g>
+      <g fill="#bfe9ff" class="particle p2"><rect x="52" y="48" width="4" height="4" opacity="0.7"/></g>
+      <g fill="#bfe9ff" class="particle p3"><rect x="44" y="56" width="4" height="4" opacity="0.6"/></g>
+      <g fill="#bfe9ff" class="particle p4"><rect x="48" y="44" width="4" height="4" opacity="0.8"/></g>
+      <g fill="#bfe9ff" class="particle p5"><rect x="36" y="52" width="4" height="4" opacity="0.5"/></g>
+      <g fill="#bfe9ff" class="particle p6"><rect x="56" y="40" width="4" height="4" opacity="0.7"/></g>
+      <g fill="#bfe9ff" class="particle p7"><rect x="42" y="36" width="4" height="4" opacity="0.6"/></g>
+      <g fill="#bfe9ff" class="particle p8"><rect x="50" y="60" width="4" height="4" opacity="0.8"/></g>
+      <!-- Biosensor glow fading -->
+      <g fill="#ff6b6b" class="biosensor-glow-dissolve"><rect x="46" y="50" width="4" height="4" opacity="0.9"/></g>
+    </symbol>
+
+    <!-- ========== Cr(VI) SPRITE ========== -->
+    <symbol id="cr6" viewBox="0 0 96 96">
+      <!-- Body -->
+      <g fill="#5a1080"><rect x="28" y="28" width="40" height="40"/></g>
+      <g fill="#a040ff"><rect x="32" y="32" width="32" height="32"/></g>
+      <g fill="#c070ff"><rect x="32" y="32" width="8" height="8"/></g>
+      <!-- Spikes -->
+      <g fill="#a040ff" class="cr6-spike"><rect x="44" y="20" width="8" height="8"/><rect x="44" y="68" width="8" height="8"/><rect x="20" y="44" width="8" height="8"/><rect x="68" y="44" width="8" height="8"/><rect x="28" y="24" width="8" height="8"/><rect x="60" y="24" width="8" height="8"/><rect x="28" y="64" width="8" height="8"/><rect x="60" y="64" width="8" height="8"/></g>
+      <!-- Eyes -->
+      <g fill="#ffff00"><rect x="36" y="40" width="6" height="6"/><rect x="54" y="40" width="6" height="6"/></g>
+      <g fill="#000000" class="cr6-pupil-left"><rect x="38" y="42" width="2" height="2"/></g>
+      <g fill="#000000" class="cr6-pupil-right"><rect x="56" y="42" width="2" height="2"/></g>
+      <!-- Smoke particles -->
+      <g fill="#7a3088" opacity="0.5" class="smoke s1"><rect x="44" y="72" width="4" height="4"/></g>
+      <g fill="#7a3088" opacity="0.4" class="smoke s2"><rect x="48" y="76" width="4" height="4"/></g>
+      <g fill="#7a3088" opacity="0.3" class="smoke s3"><rect x="40" y="74" width="4" height="4"/></g>
+    </symbol>
+
+    <!-- ========== Cr(III) SPRITE ========== -->
+    <symbol id="cr3" viewBox="0 0 96 96">
+      <!-- Body (rounded, no spikes) -->
+      <g fill="#8090a0"><rect x="28" y="28" width="40" height="40"/><rect x="32" y="24" width="32" height="4"/><rect x="32" y="68" width="32" height="4"/></g>
+      <g fill="#c0c8d0"><rect x="32" y="32" width="32" height="32"/></g>
+      <g fill="#e0e8f0"><rect x="32" y="32" width="8" height="8"/></g>
+      <!-- Dimples -->
+      <g fill="#a0b0c0"><rect x="44" y="26" width="8" height="2"/><rect x="44" y="68" width="8" height="2"/><rect x="26" y="44" width="2" height="8"/><rect x="68" y="44" width="2" height="8"/></g>
+      <!-- Calm eyes -->
+      <g fill="#ffff00"><rect x="36" y="42" width="6" height="4"/><rect x="54" y="42" width="6" height="4"/></g>
+      <!-- Sparkles -->
+      <g fill="#ffffff" class="sparkle sp1"><rect x="28" y="32" width="4" height="4"/></g>
+      <g fill="#ffffff" class="sparkle sp2"><rect x="64" y="56" width="4" height="4"/></g>
+    </symbol>
+
+    <!-- ========== ENVIRONMENT: BIOREACTOR ========== -->
+    <symbol id="bioreactor" viewBox="0 0 240 400">
+      <g fill="#0a2030"><rect width="240" height="400"/></g>
+      <g fill="#1a4a5e"><rect width="240" height="8"/><rect width="240" height="8" y="392"/><rect width="8" height="400"/><rect width="8" height="400" x="232"/></g>
+      <g fill="#0a2a3a"><rect x="12" y="12" width="216" height="376"/></g>
+      <g fill="#1a5a6a" opacity="0.3"><rect x="12" y="200" width="216" height="188"/></g>
+      <!-- Bubbles -->
+      <g fill="#7fffe0" class="bubble b1"><rect x="60" y="380" width="8" height="8" opacity="0.7"/></g>
+      <g fill="#7fffe0" class="bubble b2"><rect x="100" y="360" width="6" height="6" opacity="0.6"/></g>
+      <g fill="#7fffe0" class="bubble b3"><rect x="140" y="370" width="8" height="8" opacity="0.5"/></g>
+      <g fill="#7fffe0" class="bubble b4"><rect x="180" y="350" width="6" height="6" opacity="0.7"/></g>
+      <g fill="#7fffe0" class="bubble b5"><rect x="80" y="340" width="4" height="4" opacity="0.6"/></g>
+      <g fill="#7fffe0" class="bubble b6"><rect x="160" y="320" width="6" height="6" opacity="0.5"/></g>
+      <g fill="#7fffe0" class="bubble b7"><rect x="120" y="300" width="8" height="8" opacity="0.4"/></g>
+      <g fill="#7fffe0" class="bubble b8"><rect x="50" y="280" width="4" height="4" opacity="0.6"/></g>
+      <!-- LEDs -->
+      <g fill="#39ff7a" class="led-green"><rect x="20" y="24" width="12" height="8"/></g>
+      <g fill="#1b3a6b" class="led-blue"><rect x="40" y="24" width="12" height="8"/></g>
+    </symbol>
+
+    <!-- ========== ENVIRONMENT: MONITOR ========== -->
+    <symbol id="monitor" viewBox="0 0 144 96">
+      <g fill="#0a1520"><rect width="144" height="80"/></g>
+      <g fill="#1a2a3a"><rect width="144" height="4"/><rect width="144" height="4" y="76"/><rect width="4" height="80"/><rect width="4" height="80" x="140"/></g>
+      <g fill="#ffffff" opacity="0.08" class="scanlines"><rect y="4" width="136" height="2"/><rect y="12" width="136" height="2"/><rect y="20" width="136" height="2"/><rect y="28" width="136" height="2"/><rect y="36" width="136" height="2"/><rect y="44" width="136" height="2"/><rect y="52" width="136" height="2"/><rect y="60" width="136" height="2"/><rect y="68" width="136" height="2"/></g>
+      <g fill="#7fffe0" class="terminal-text"><rect x="8" y="8" width="40" height="4"/><rect x="8" y="16" width="60" height="4"/><rect x="8" y="24" width="80" height="4"/><rect x="8" y="32" width="56" height="4"/><rect x="8" y="40" width="72" height="4"/></g>
+      <g fill="#7fffe0" class="cursor"><rect x="84" y="40" width="4" height="4"/></g>
+      <g fill="#1a2a3a"><rect x="56" y="80" width="32" height="16"/><rect x="48" y="88" width="48" height="8"/></g>
+    </symbol>
+
+    <!-- ========== ENVIRONMENT: INCUBATION CHAMBER ========== -->
+    <symbol id="incubator" viewBox="0 0 160 128">
+      <g fill="#1a3a4a"><rect width="160" height="128"/></g>
+      <g fill="#0a2030"><rect x="8" y="8" width="144" height="112"/></g>
+      <g fill="#2a5a6a" class="door-frame"><rect x="68" y="8" width="8" height="112" class="door-panel"/></g>
+      <g fill="#3a8a9a" opacity="0.2" class="incubator-glow"><rect x="12" y="12" width="136" height="104"/></g>
+    </symbol>
+
+    <!-- ========== ENVIRONMENT: PIPES ========== -->
+    <symbol id="pipe" viewBox="0 0 32 8">
+      <g fill="#1a3a5a"><rect width="32" height="8"/></g>
+      <g fill="#2a5a7a"><rect y="2" width="32" height="4"/></g>
+      <g fill="#7fffe0" class="pipe-glow" opacity="0.6"><rect x="0" y="3" width="4" height="2"/></g>
+    </symbol>
+
+    <!-- ========== SCAN PULSE RING ========== -->
+    <symbol id="scanPulse" viewBox="0 0 120 120">
+      <rect x="4" y="4" width="112" height="112" fill="none" stroke="#7fffe0" stroke-width="4" opacity="0.8"/>
+    </symbol>
+
+    <!-- ========== BOKEH PARTICLES ========== -->
+    <symbol id="bokeh" viewBox="0 0 4 4">
+      <rect width="4" height="4" fill="#ffffff" opacity="0.15"/>
+    </symbol>
+
+  </defs>
+
+  <!-- ========== BACKGROUND: FLOOR ========== -->
+  <rect width="1280" height="720" fill="url(#floorTile)"/>
+
+  <!-- ========== PIPES (TOP) ========== -->
+  <g transform="translate(0, 40)">
+    <use href="#pipe" x="100" width="320"/>
+    <use href="#pipe" x="500" width="400"/>
+    <use href="#pipe" x="980" width="300"/>
+  </g>
+
+  <!-- ========== BIOREACTOR (LEFT) ========== -->
+  <g transform="translate(80, 180)">
+    <use href="#bioreactor"/>
+  </g>
+
+  <!-- ========== MONITOR (RIGHT) ========== -->
+  <g transform="translate(980, 200)">
+    <use href="#monitor"/>
+  </g>
+
+  <!-- ========== INCUBATION CHAMBER (BOTTOM CENTER) ========== -->
+  <g transform="translate(560, 540)">
+    <use href="#incubator"/>
+  </g>
+
+  <!-- ========== EQUIPMENT SILHOUETTES ========== -->
+  <g fill="#0a1525" opacity="0.6">
+    <rect x="300" y="620" width="32" height="48"/>
+    <rect x="308" y="600" width="16" height="20"/>
+    <rect x="304" y="660" width="24" height="8"/>
+  </g>
+  <g fill="#0a1525" opacity="0.5">
+    <rect x="850" y="640" width="48" height="32"/>
+    <rect x="858" y="644" width="4" height="24"/>
+    <rect x="870" y="644" width="4" height="24"/>
+    <rect x="882" y="644" width="4" height="24"/>
+  </g>
+
+  <!-- ========== BOKEH PARTICLES ========== -->
+  <g class="bokeh-container">
+    <use href="#bokeh" x="150" y="300" class="bokeh bk1"/>
+    <use href="#bokeh" x="400" y="250" class="bokeh bk2"/>
+    <use href="#bokeh" x="650" y="350" class="bokeh bk3"/>
+    <use href="#bokeh" x="900" y="280" class="bokeh bk4"/>
+    <use href="#bokeh" x="1100" y="320" class="bokeh bk5"/>
+    <use href="#bokeh" x="250" y="400" class="bokeh bk6"/>
+    <use href="#bokeh" x="750" y="380" class="bokeh bk7"/>
+    <use href="#bokeh" x="1000" y="400" class="bokeh bk8"/>
+    <use href="#bokeh" x="500" y="450" class="bokeh bk9"/>
+    <use href="#bokeh" x="1200" y="350" class="bokeh bk10"/>
+  </g>
+
+  <!-- ========== MAIN CHARACTER LAYER ========== -->
+  <g id="characters">
+
+    <!-- ========== STRATA ========== -->
+    <g id="strata" transform="translate(640, 320)">
+      <g class="strata-idle">
+        <use href="#strata_sleep" width="96" height="96" x="-48" y="-48"/>
+      </g>
+      <g class="antenna-sway">
+        <animateTransform attributeName="transform" type="translate"
+          values="0 0; 2 0; 0 0; -2 0; 0 0"
+          dur="1.4s" repeatCount="indefinite"/>
+      </g>
+    </g>
+
+    <!-- ========== Cr(VI) / Cr(III) ========== -->
+    <g id="crx" transform="translate(1400, 400)">
+      <g class="crx-sprite">
+        <use href="#cr6" width="96" height="96" x="-48" y="-48"/>
+      </g>
+      <!-- NemA orbit particles -->
+      <g class="nema-orbit" opacity="0">
+        <use href="#bokeh" x="-2" y="-22" class="nema n1"/>
+        <use href="#bokeh" x="15" y="-12" class="nema n2"/>
+        <use href="#bokeh" x="15" y="8" class="nema n3"/>
+        <use href="#bokeh" x="-2" y="18" class="nema n4"/>
+        <use href="#bokeh" x="-19" y="8" class="nema n5"/>
+        <use href="#bokeh" x="-19" y="-12" class="nema n6"/>
+      </g>
+    </g>
+
+    <!-- ========== SCAN PULSE ========== -->
+    <g id="scanPulse" transform="translate(640, 400)" opacity="0">
+      <use href="#scanPulse" width="120" height="120" x="-60" y="-60"/>
+    </g>
+
+  </g>
+
+  <!-- ========== LIGHTING OVERLAY LAYER ========== -->
+  <g id="lighting-layer" style="mix-blend-mode: multiply; pointer-events: none;">
+
+    <!-- Scene 1: Cool teal (rest) -->
+    <rect width="1280" height="720" fill="#1a4a5e" opacity="0.15">
+      <animate attributeName="opacity"
+        values="0.15; 0.15; 0; 0; 0; 0; 0; 0; 0; 0.15; 0.15"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 2: Purple haze (threat) -->
+    <rect width="1280" height="720" fill="#7a3088" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0.45; 0.45; 0; 0; 0; 0; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 3: Teal-purple (wake-up) -->
+    <rect width="1280" height="720" fill="#3a5a7a" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0.30; 0.30; 0; 0; 0; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 4: Emerald (biosensing) -->
+    <rect width="1280" height="720" fill="#2a8060" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0.35; 0.35; 0.30; 0; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 5: Emerald warmer (remediation) -->
+    <rect width="1280" height="720" fill="#3a9060" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0.30; 0.30; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 6: Warm teal (restored) -->
+    <rect width="1280" height="720" fill="#2a5a5a" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0; 0.20; 0.20; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 7: Amber (kill switch) -->
+    <rect width="1280" height="720" fill="#a04020" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0; 0; 0.40; 0.40; 0.10; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Scene 8: Warm white (new cycle) -->
+    <rect width="1280" height="720" fill="#5a4a3a" opacity="0">
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0; 0; 0; 0.10; 0.10; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+
+  </g>
+
+  <!-- ========== TERMINAL TEXT OVERLAY ========== -->
+  <g id="terminal-text" transform="translate(1020, 220)">
+    <!-- Scene 1 text -->
+    <g class="terminal-line t1" opacity="1">
+      <rect width="80" height="4" fill="#7fffe0"/>
+      <animate attributeName="opacity"
+        values="1; 1; 0; 0; 0; 0; 0; 0; 0; 1; 1"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+    <g class="terminal-line t2" opacity="1">
+      <rect width="60" height="4" fill="#7fffe0"/>
+      <animate attributeName="opacity"
+        values="1; 1; 0; 0; 0; 0; 0; 0; 0; 1; 1"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+    <g class="terminal-line t3" opacity="1">
+      <rect width="88" height="4" fill="#7fffe0"/>
+      <animate attributeName="opacity"
+        values="1; 1; 0; 0; 0; 0; 0; 0; 0; 1; 1"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Scene 2-3 warning -->
+    <g class="terminal-warning" opacity="0">
+      <rect width="72" height="4" fill="#ff6b6b"/>
+      <rect y="8" width="56" height="4" fill="#ff6b6b"/>
+      <animate attributeName="opacity"
+        values="0; 1; 1; 1; 0; 0; 0; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Scene 4-5 biosensing -->
+    <g class="terminal-biosensing" opacity="0">
+      <rect width="64" height="4" fill="#39ff7a"/>
+      <rect y="8" width="48" height="4" fill="#39ff7a"/>
+      <animate attributeName="opacity"
+        values="0; 0; 0; 1; 1; 1; 0; 0; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Scene 6 success -->
+    <g class="terminal-success" opacity="0">
+      <rect width="96" height="4" fill="#39ff7a"/>
+      <rect y="8" width="80" height="4" fill="#7fffe0"/>
+      <rect y="16" width="64" height="4" fill="#7fffe0"/>
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0; 1; 1; 0; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Scene 7 kill switch -->
+    <g class="terminal-kill" opacity="0">
+      <rect width="72" height="4" fill="#ff6b6b"/>
+      <rect y="8" width="56" height="4" fill="#ff6b6b"/>
+      <animate attributeName="opacity"
+        values="0; 0; 0; 0; 0; 0; 0; 1; 1; 0; 0"
+        keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- Cursor blink -->
+    <rect class="cursor-blink" x="92" y="0" width="4" height="4" fill="#7fffe0">
+      <animate attributeName="opacity" values="1; 0; 1" dur="0.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ========== CSS ANIMATIONS ========== -->
+  <style>
+    .biosensor-glow {
+      animation: biosensorPulse 1s ease-in-out infinite;
+    }
+    @keyframes biosensorPulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .pupil-left, .pupil-right {
+      animation: pupilSaccade 3.2s steps(1) infinite;
+    }
+    .pupil-right { animation-delay: 1.6s; }
+    @keyframes pupilSaccade {
+      0%, 40% { transform: translate(0, 0); }
+      45% { transform: translate(2px, 0); }
+      50% { transform: translate(-1px, 1px); }
+      55%, 100% { transform: translate(0, 0); }
+    }
+
+    .antenna-tip {
+      animation: antennaGlow 1.4s ease-in-out infinite;
+    }
+    @keyframes antennaGlow {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+
+    .bubble.b1 { animation: bubbleRise1 2.5s ease-in-out infinite; }
+    .bubble.b2 { animation: bubbleRise2 2.5s ease-in-out infinite 0.3s; }
+    .bubble.b3 { animation: bubbleRise3 2.5s ease-in-out infinite 0.6s; }
+    .bubble.b4 { animation: bubbleRise4 2.5s ease-in-out infinite 0.9s; }
+    .bubble.b5 { animation: bubbleRise5 2.5s ease-in-out infinite 1.2s; }
+    .bubble.b6 { animation: bubbleRise6 2.5s ease-in-out infinite 1.5s; }
+    .bubble.b7 { animation: bubbleRise7 2.5s ease-in-out infinite 1.8s; }
+    .bubble.b8 { animation: bubbleRise8 2.5s ease-in-out infinite 2.1s; }
+
+    @keyframes bubbleRise1 { 0% { transform: translateY(0); opacity: 0.7; } 80% { opacity: 0.2; } 100% { transform: translateY(-100px); opacity: 0; } }
+    @keyframes bubbleRise2 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-120px); opacity: 0; } }
+    @keyframes bubbleRise3 { 0% { transform: translateY(0); opacity: 0.5; } 80% { opacity: 0.2; } 100% { transform: translateY(-90px); opacity: 0; } }
+    @keyframes bubbleRise4 { 0% { transform: translateY(0); opacity: 0.7; } 80% { opacity: 0.2; } 100% { transform: translateY(-110px); opacity: 0; } }
+    @keyframes bubbleRise5 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-130px); opacity: 0; } }
+    @keyframes bubbleRise6 { 0% { transform: translateY(0); opacity: 0.5; } 80% { opacity: 0.2; } 100% { transform: translateY(-100px); opacity: 0; } }
+    @keyframes bubbleRise7 { 0% { transform: translateY(0); opacity: 0.4; } 80% { opacity: 0.1; } 100% { transform: translateY(-115px); opacity: 0; } }
+    @keyframes bubbleRise8 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-125px); opacity: 0; } }
+
+    .scanlines {
+      animation: scanlineDrift 1.5s linear infinite;
+    }
+    @keyframes scanlineDrift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-20px); }
+    }
+
+    .bokeh.bk1 { animation: bokehFloat1 6s ease-in-out infinite; }
+    .bokeh.bk2 { animation: bokehFloat2 6s ease-in-out infinite 0.5s; }
+    .bokeh.bk3 { animation: bokehFloat3 6s ease-in-out infinite 1s; }
+    .bokeh.bk4 { animation: bokehFloat4 6s ease-in-out infinite 1.5s; }
+    .bokeh.bk5 { animation: bokehFloat5 6s ease-in-out infinite 2s; }
+    .bokeh.bk6 { animation: bokehFloat6 6s ease-in-out infinite 2.5s; }
+    .bokeh.bk7 { animation: bokehFloat7 6s ease-in-out infinite 3s; }
+    .bokeh.bk8 { animation: bokehFloat8 6s ease-in-out infinite 3.5s; }
+    .bokeh.bk9 { animation: bokehFloat9 6s ease-in-out infinite 4s; }
+    .bokeh.bk10 { animation: bokehFloat10 6s ease-in-out infinite 4.5s; }
+
+    @keyframes bokehFloat1 { 0% { transform: translate(0, 0); opacity: 0.15; } 50% { transform: translate(-5px, -60px); opacity: 0.15; } 100% { transform: translate(0, -120px); opacity: 0; } }
+    @keyframes bokehFloat2 { 0% { transform: translate(0, 0); opacity: 0.12; } 50% { transform: translate(12px, -55px); opacity: 0.15; } 100% { transform: translate(0, -115px); opacity: 0; } }
+    @keyframes bokehFloat3 { 0% { transform: translate(0, 0); opacity: 0.15; } 50% { transform: translate(-10px, -65px); opacity: 0.1; } 100% { transform: translate(0, -125px); opacity: 0; } }
+    @keyframes bokehFloat4 { 0% { transform: translate(0, 0); opacity: 0.14; } 50% { transform: translate(8px, -58px); opacity: 0.13; } 100% { transform: translate(0, -118px); opacity: 0; } }
+    @keyframes bokehFloat5 { 0% { transform: translate(0, 0); opacity: 0.13; } 50% { transform: translate(-7px, -62px); opacity: 0.14; } 100% { transform: translate(0, -122px); opacity: 0; } }
+    @keyframes bokehFloat6 { 0% { transform: translate(0, 0); opacity: 0.15; } 50% { transform: translate(9px, -60px); opacity: 0.12; } 100% { transform: translate(0, -120px); opacity: 0; } }
+    @keyframes bokehFloat7 { 0% { transform: translate(0, 0); opacity: 0.12; } 50% { transform: translate(-8px, -63px); opacity: 0.11; } 100% { transform: translate(0, -123px); opacity: 0; } }
+    @keyframes bokehFloat8 { 0% { transform: translate(0, 0); opacity: 0.14; } 50% { transform: translate(6px, -59px); opacity: 0.13; } 100% { transform: translate(0, -119px); opacity: 0; } }
+    @keyframes bokehFloat9 { 0% { transform: translate(0, 0); opacity: 0.13; } 50% { transform: translate(-11px, -61px); opacity: 0.12; } 100% { transform: translate(0, -121px); opacity: 0; } }
+    @keyframes bokehFloat10 { 0% { transform: translate(0, 0); opacity: 0.15; } 50% { transform: translate(13px, -64px); opacity: 0.14; } 100% { transform: translate(0, -124px); opacity: 0; } }
+
+    .pipe-glow {
+      animation: pipeGlowTravel 4s linear infinite;
+    }
+    @keyframes pipeGlowTravel {
+      0% { transform: translateX(0); opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateX(320px); opacity: 0; }
+    }
+
+    .smoke.s1 { animation: smokeRise1 2s ease-out infinite; }
+    .smoke.s2 { animation: smokeRise2 2s ease-out infinite 0.5s; }
+    .smoke.s3 { animation: smokeRise3 2s ease-out infinite 1s; }
+    @keyframes smokeRise1 { 0% { transform: translate(0, 0); opacity: 0.5; } 100% { transform: translate(-10px, -40px); opacity: 0; } }
+    @keyframes smokeRise2 { 0% { transform: translate(0, 0); opacity: 0.4; } 100% { transform: translate(15px, -45px); opacity: 0; } }
+    @keyframes smokeRise3 { 0% { transform: translate(0, 0); opacity: 0.3; } 100% { transform: translate(-5px, -35px); opacity: 0; } }
+
+    .sparkle.sp1 { animation: sparkle1 0.4s ease-in-out infinite; }
+    .sparkle.sp2 { animation: sparkle2 0.4s ease-in-out infinite 0.2s; }
+    @keyframes sparkle1 { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+    @keyframes sparkle2 { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+    .particle.p1 { animation: dissolve1 2s ease-out infinite; }
+    .particle.p2 { animation: dissolve2 2s ease-out infinite 0.2s; }
+    .particle.p3 { animation: dissolve3 2s ease-out infinite 0.4s; }
+    .particle.p4 { animation: dissolve4 2s ease-out infinite 0.6s; }
+    .particle.p5 { animation: dissolve5 2s ease-out infinite 0.8s; }
+    .particle.p6 { animation: dissolve6 2s ease-out infinite 1s; }
+    .particle.p7 { animation: dissolve7 2s ease-out infinite 1.2s; }
+    .particle.p8 { animation: dissolve8 2s ease-out infinite 1.4s; }
+    @keyframes dissolve1 { 0% { transform: translate(0, 0); opacity: 0.8; } 100% { transform: translate(-20px, -80px); opacity: 0; } }
+    @keyframes dissolve2 { 0% { transform: translate(0, 0); opacity: 0.7; } 100% { transform: translate(25px, -90px); opacity: 0; } }
+    @keyframes dissolve3 { 0% { transform: translate(0, 0); opacity: 0.6; } 100% { transform: translate(-15px, -75px); opacity: 0; } }
+    @keyframes dissolve4 { 0% { transform: translate(0, 0); opacity: 0.8; } 100% { transform: translate(30px, -85px); opacity: 0; } }
+    @keyframes dissolve5 { 0% { transform: translate(0, 0); opacity: 0.5; } 100% { transform: translate(-25px, -95px); opacity: 0; } }
+    @keyframes dissolve6 { 0% { transform: translate(0, 0); opacity: 0.7; } 100% { transform: translate(20px, -80px); opacity: 0; } }
+    @keyframes dissolve7 { 0% { transform: translate(0, 0); opacity: 0.6; } 100% { transform: translate(-10px, -70px); opacity: 0; } }
+    @keyframes dissolve8 { 0% { transform: translate(0, 0); opacity: 0.8; } 100% { transform: translate(35px, -100px); opacity: 0; } }
+
+    .nema { animation: nemaOrbit 1.2s linear infinite; }
+    .nema.n2 { animation-delay: 0.2s; }
+    .nema.n3 { animation-delay: 0.4s; }
+    .nema.n4 { animation-delay: 0.6s; }
+    .nema.n5 { animation-delay: 0.8s; }
+    .nema.n6 { animation-delay: 1.0s; }
+    @keyframes nemaOrbit {
+      0% { transform: rotate(0deg) translateX(25px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(25px) rotate(-360deg); }
+    }
+  </style>
+
+  <!-- ========== SCENE ANIMATIONS (18s master clock) ========== -->
+  <!--
+    KeyTimes: 0=0s | 0.167=3s | 0.25=4.5s | 0.361=6.5s | 0.472=8.5s | 0.528=9.5s | 0.639=11.5s | 0.75=13.5s | 0.861=15.5s | 0.917=16.5s | 1.0=18s
+  -->
+
+  <!-- Cr(VI) enters -->
+  <animateTransform xlink:href="#crx"
+    attributeName="transform" type="translate"
+    values="1400 400; 640 400; 640 400; 640 400; 640 400; 640 400; 640 400; 640 400; 1400 400; 1400 400; 1400 400"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+    dur="18s" repeatCount="indefinite"
+    calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
+
+  <!-- Cr(VI) to Cr(III) color transition -->
+  <animate xlink:href="#crx .cr6-spike"
+    attributeName="fill"
+    values="#a040ff; #a040ff; #ff6644; #ffaa22; #aaaaaa; #c0c8d0; #c0c8d0"
+    keyTimes="0; 0.25; 0.361; 0.444; 0.528; 0.583; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- NemA orbit appears -->
+  <animate xlink:href="#crx .nema-orbit"
+    attributeName="opacity"
+    values="0; 0; 0; 0; 1; 1; 0; 0; 0; 0; 0"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.583; 0.639; 0.75; 0.861; 0.917; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- Scan pulse -->
+  <animate xlink:href="#scanPulse"
+    attributeName="opacity"
+    values="0; 0; 0; 1; 0; 0; 0; 0; 0; 0; 0"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.444; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <animateTransform xlink:href="#scanPulse"
+    attributeName="transform" type="scale"
+    values="1; 1; 1; 1.5; 1; 2; 1; 1; 1; 1; 1"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.389; 0.417; 0.444; 0.528; 0.639; 0.75; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- Incubator door opens -->
+  <animateTransform xlink:href="#incubator .door-panel"
+    attributeName="transform" type="translate"
+    values="0 0; 0 0; 0 0; 0 0; 0 0; 0 0; 0 0; 0 0; -60 0; -60 0; 0 0"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.861; 0.917; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- Smoke fade -->
+  <animate xlink:href="#crx .smoke"
+    attributeName="opacity"
+    values="0.5; 0.5; 0.5; 0.3; 0.1; 0; 0; 0; 0; 0.5; 0.5"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.528; 0.639; 0.75; 0.861; 0.917; 0.972; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- Sparkle for Cr(III) -->
+  <animate xlink:href="#crx .sparkle"
+    attributeName="opacity"
+    values="0; 0; 0; 0; 0; 0; 1; 1; 0; 0; 0"
+    keyTimes="0; 0.167; 0.25; 0.361; 0.472; 0.583; 0.639; 0.75; 0.861; 0.917; 1.0"
+    dur="18s" repeatCount="indefinite"/>
+
+  <!-- Z particles puff -->
+  <g id="z-particles" transform="translate(640, 270)">
+    <g class="z-puff" opacity="0">
+      <rect x="-4" y="0" width="4" height="4" fill="#7fffe0"/>
+      <rect x="0" y="-8" width="4" height="4" fill="#7fffe0" opacity="0.8"/>
+      <rect x="4" y="-16" width="4" height="4" fill="#7fffe0" opacity="0.6"/>
+      <animate attributeName="opacity"
+        values="0; 0.6; 0; 0; 0; 0; 0; 0; 0; 0.6; 0"
+        keyTimes="0; 0.083; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate"
+        values="0 0; -5 -30; -10 -60; 0 0; 0 0; 0 0; 0 0; 0 0; 0 0; -5 -30; 0 0"
+        keyTimes="0; 0.083; 0.167; 0.25; 0.361; 0.472; 0.528; 0.639; 0.75; 0.917; 1.0"
+        dur="18s" repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <!-- Warning LED flash -->
+  <rect x="1100" y="224" width="12" height="8" fill="#ff0000">
+    <animate attributeName="opacity"
+      values="1; 0.3; 1; 0.3; 1; 1; 1; 1; 1; 1; 1"
+      keyTimes="0; 0.028; 0.056; 0.083; 0.111; 0.167; 0.25; 0.361; 0.472; 0.917; 1.0"
+      dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+</svg>

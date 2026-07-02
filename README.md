@@ -16,22 +16,26 @@
 
 ---
 
-## 🎬 How STRATA works, in 6 beats
+## 🎬 How STRATA works, in 8 scenes (18-second seamless loop)
 
-> A sleeping engineered *E. coli* is awakened by an incoming Cr(VI) ion, chases it, biosenses it (sfGFP glow), reduces it to Cr(III) via NemA, and finally triggers the holin–endolysin kill switch.
+> A sleeping engineered *E. coli* BMO in a biotech lab detects incoming Cr(VI) ions, awakens and biosenses them, reduces Cr(VI) to benign Cr(III) via NemA enzyme, then triggers the holin–endolysin kill switch and dissolves. A new BMO hatches from the incubation chamber to resume monitoring.
 
 <p align="center">
-  <img src="Diagrams/strata_story.svg" alt="STRATA story: sleeping BMO awakened by Cr(VI), chases it, glows green, reduces Cr(VI) to Cr(III), then triggers the kill switch" width="100%">
+  <img src="assets/strata_story.svg" alt="STRATA story: a sleeping engineered organism in a biotech lab detects incoming hexavalent chromium, wakes up, biosenses and reduces it to trivalent chromium via NemA, dissolves on kill-switch activation, and a new organism hatches to resume monitoring -- an 18-second seamless pixel-art loop." width="100%">
 </p>
 
-| Beat | What happens | Module in the project |
-|---|---|---|
-| 1 | BMO is dormant, sleeping | Baseline (no Cr(VI) → kill switch primed) |
-| 2 | Cr(VI) ion crashes in | **Module 1** — ChrB-sfGFP biosensor activated |
-| 3 | BMO chases the Cr(VI) | Activation cascade |
-| 4 | BMO catches it and **glows green** | **Module 1** — sfGFP reports intracellular Cr(VI) |
-| 5 | Cr(VI) → Cr(III), toxic → benign | **Module 2** — NemA chromate reductase |
-| 6 | BMO looks "wrong" and lyses | **Module 3** — Holin-Endolysin kill switch |
+| Scene | Time | What happens | Module in the project |
+|---|---|---|---|
+| 1 | 0–3s | BMO is dormant at the monitoring station; ambient lab life continues (bubbles, bokeh particles, scanlines, antenna sway) | Baseline (no Cr(VI) → kill switch primed) |
+| 2 | 3–4.5s | **Threat detected** — Cr(VI) ion enters from right, purple smoke trail, camera shake, warning LED flashes, STRATA's antenna perks | **Module 1** — ChrB-sfGFP biosensor detects extracellular Cr(VI) |
+| 3 | 4.5–6.5s | **BMO awakens** — STRATA's eyes open, biosensor cycles blue→yellow→orange→green, body stretches, swaps to running pose and chases | Activation cascade |
+| 4 | 6.5–8.5s | **Biosensing** — STRATA and Cr(VI) meet at center, STRATA extends scanning arm, scan pulse ring expands, biosensor glows bright green | **Module 1** — sfGFP reports intracellular Cr(VI) |
+| 5 | 8.5–11.5s | **NemA remediation** — NemA enzyme particles orbit Cr(VI), Cr(VI) recolours purple→gray→silver, spikes fade to rounded dimples (Cr(III)) | **Module 2** — NemA chromate reductase reduces Cr(VI) to Cr(III) |
+| 6 | 11.5–13.5s | **Environment restored** — Cr(III) sparkles peacefully, STRATA smiles, terminal confirms neutralization | Environment safe |
+| 7 | 13.5–15.5s | **Kill switch** — STRATA's biosensor fades red, arm waves, body dissolves into rising particles | **Module 3** — Holin-Endolysin kill switch activates |
+| 8 | 15.5–18s | **New cycle** — Incubator door opens, fresh BMO emerges, yawns, walks to monitoring station, settles into sleep | Loop restarts |
+
+*Ambient motion runs continuously across all 18 seconds: bioreactor bubbles rising, monitor scanlines drifting, equipment LED pulses, parallax bokeh particles, pipe glows traveling, and STRATA's breathing/antenna sway/blinking.*
 
 ---
 
