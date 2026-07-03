@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1280 720" width="1280" height="720"
+     aria-label="STRATA story: a sleeping engineered organism in a biotech lab detects incoming hexavalent chromium, wakes up, biosenses and reduces it to trivalent chromium via NemA, dissolves on kill-switch activation, and a new organism hatches to resume monitoring -- an 18-second seamless pixel-art loop."
+     role="img">
+  <desc>A sleeping engineered BMO in a biotech lab detects incoming Cr(VI), awakens and biosenses it, reduces it to Cr(III) via NemA enzyme, then triggers the kill switch and dissolves. A new organism hatches from the incubation chamber to resume monitoring. The animation runs in a seamless 18-second loop with continuous ambient motion.</desc>
+
+  <defs>
+    <!-- ═══════ PATTERNS ═══════ -->
+    <pattern id="floorTile" width="96" height="96" patternUnits="userSpaceOnUse">
+      <rect width="96" height="96" fill="#0e1a2b"/>
+      <rect y="0" height="4" width="96" fill="#1b3157"/>
+      <rect y="40" height="4" width="96" fill="#13243d"/>
+      <rect y="80" height="4" width="96" fill="#13243d"/>
+      <rect y="44" height="4" width="96" fill="#1b3157"/>
+      <rect y="84" height="4" width="96" fill="#1b3157"/>
+    </pattern>
+
+    <pattern id="crt" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="2" fill="#000000"/>
+    </pattern>
+
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="85%" stop-color="#000000" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+    </radialGradient>
+
+    <!-- ═══════ STRATA SPRITES ═══════ -->
+
+    <!-- SLEEPING — drooped antenna, closed eyes, dim biosensor -->
+    <symbol id="strata_sleep" viewBox="0 0 96 96">
+      <rect x="36" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="52" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="36" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="52" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="24" y="28" width="48" height="56" fill="#0a2a3a"/>
+      <rect x="28" y="24" width="40" height="60" fill="#0a2a3a"/>
+      <rect x="28" y="28" width="40" height="56" fill="#3a8aaa"/>
+      <rect x="32" y="32" width="32" height="48" fill="#4ab8d8"/>
+      <rect x="32" y="32" width="12" height="8" fill="#8adef8"/>
+      <rect x="32" y="40" width="4" height="8" fill="#8adef8"/>
+      <rect x="36" y="40" width="4" height="4" fill="#8adef8"/>
+      <rect x="40" y="56" width="16" height="12" fill="#0a2a3a"/>
+      <rect x="42" y="58" width="12" height="8" fill="#1a5a4a"/>
+      <rect x="44" y="60" width="8" height="4" fill="#2a8a6a" opacity="0.5"/>
+      <rect x="32" y="40" width="8" height="2" fill="#8adef8"/>
+      <rect x="56" y="40" width="8" height="2" fill="#8adef8"/>
+      <rect x="32" y="36" width="8" height="2" fill="#8adef8" opacity="0.5"/>
+      <rect x="56" y="36" width="8" height="2" fill="#8adef8" opacity="0.5"/>
+      <rect x="44" y="16" width="8" height="12" fill="#0a2a3a"/>
+      <rect x="44" y="16" width="8" height="8" fill="#3a8aaa"/>
+      <rect x="44" y="16" width="4" height="4" fill="#8adef8"/>
+      <rect x="40" y="12" width="16" height="6" fill="#3a8aaa"/>
+      <rect x="40" y="12" width="8" height="4" fill="#4ab8d8"/>
+      <rect x="56" y="14" width="4" height="4" fill="#8adef8"/>
+      <rect x="44" y="48" width="8" height="2" fill="#8adef8"/>
+    </symbol>
+
+    <!-- ALERT — wide eyes, perked antenna, open mouth, bright biosensor -->
+    <symbol id="strata_alert" viewBox="0 0 96 96">
+      <rect x="36" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="52" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="36" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="52" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="24" y="28" width="48" height="56" fill="#0a2a3a"/>
+      <rect x="28" y="24" width="40" height="60" fill="#0a2a3a"/>
+      <rect x="28" y="28" width="40" height="56" fill="#3a8aaa"/>
+      <rect x="32" y="32" width="32" height="48" fill="#4ab8d8"/>
+      <rect x="32" y="32" width="12" height="8" fill="#8adef8"/>
+      <rect x="32" y="40" width="4" height="8" fill="#8adef8"/>
+      <rect x="40" y="56" width="16" height="12" fill="#0a2a3a"/>
+      <rect x="42" y="58" width="12" height="8" fill="#2a8a4a"/>
+      <rect x="44" y="60" width="8" height="4" fill="#4aff8a" opacity="0.9"/>
+      <rect x="32" y="40" width="12" height="12" fill="#ffffff"/>
+      <rect x="52" y="40" width="12" height="12" fill="#ffffff"/>
+      <rect x="36" y="44" width="4" height="4" fill="#0a2a3a"/>
+      <rect x="56" y="44" width="4" height="4" fill="#0a2a3a"/>
+      <rect x="32" y="36" width="12" height="2" fill="#8adef8"/>
+      <rect x="52" y="36" width="12" height="2" fill="#8adef8"/>
+      <rect x="44" y="16" width="8" height="12" fill="#0a2a3a"/>
+      <rect x="44" y="12" width="8" height="12" fill="#3a8aaa"/>
+      <rect x="44" y="12" width="4" height="4" fill="#8adef8"/>
+      <rect x="40" y="4" width="16" height="8" fill="#3a8aaa"/>
+      <rect x="44" y="4" width="8" height="4" fill="#ffff00" class="antenna-tip"/>
+      <rect x="42" y="48" width="12" height="6" fill="#0a2a3a"/>
+      <rect x="44" y="49" width="8" height="4" fill="#8adef8"/>
+    </symbol>
+
+    <!-- RUNNING — tilted body, spread legs, determined face -->
+    <symbol id="strata_run" viewBox="0 0 96 96">
+      <g transform="rotate(-8, 48, 56)">
+        <rect x="24" y="28" width="48" height="56" fill="#0a2a3a"/>
+        <rect x="28" y="24" width="40" height="60" fill="#0a2a3a"/>
+        <rect x="28" y="28" width="40" height="56" fill="#3a8aaa"/>
+        <rect x="32" y="32" width="32" height="48" fill="#4ab8d8"/>
+        <rect x="32" y="32" width="12" height="8" fill="#8adef8"/>
+        <rect x="32" y="40" width="4" height="8" fill="#8adef8"/>
+        <rect x="40" y="56" width="16" height="12" fill="#0a2a3a"/>
+        <rect x="42" y="58" width="12" height="8" fill="#2a8a4a"/>
+        <rect x="44" y="60" width="8" height="4" fill="#4aff8a" opacity="0.9"/>
+        <rect x="32" y="40" width="12" height="12" fill="#ffffff"/>
+        <rect x="52" y="40" width="12" height="12" fill="#ffffff"/>
+        <rect x="36" y="44" width="4" height="4" fill="#0a2a3a"/>
+        <rect x="56" y="44" width="4" height="4" fill="#0a2a3a"/>
+        <rect x="32" y="36" width="12" height="2" fill="#8adef8"/>
+        <rect x="52" y="36" width="12" height="2" fill="#8adef8"/>
+        <rect x="44" y="16" width="8" height="12" fill="#0a2a3a"/>
+        <rect x="44" y="12" width="8" height="12" fill="#3a8aaa"/>
+        <rect x="44" y="4" width="8" height="8" fill="#ffff00" class="antenna-tip"/>
+        <rect x="42" y="48" width="12" height="2" fill="#8adef8"/>
+      </g>
+      <rect x="32" y="80" width="8" height="16" fill="#1a4a5a" transform="rotate(20, 36, 80)"/>
+      <rect x="56" y="80" width="8" height="16" fill="#1a4a5a" transform="rotate(-20, 60, 80)"/>
+      <rect x="32" y="80" width="8" height="4" fill="#2a6a7a" transform="rotate(20, 36, 80)"/>
+      <rect x="56" y="80" width="8" height="4" fill="#2a6a7a" transform="rotate(-20, 60, 80)"/>
+    </symbol>
+
+    <!-- WAVING — smile, raised arm, perked antenna -->
+    <symbol id="strata_wave" viewBox="0 0 96 96">
+      <rect x="36" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="52" y="80" width="8" height="16" fill="#1a4a5a"/>
+      <rect x="36" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="52" y="80" width="8" height="4" fill="#2a6a7a"/>
+      <rect x="24" y="28" width="48" height="56" fill="#0a2a3a"/>
+      <rect x="28" y="24" width="40" height="60" fill="#0a2a3a"/>
+      <rect x="28" y="28" width="40" height="56" fill="#3a8aaa"/>
+      <rect x="32" y="32" width="32" height="48" fill="#4ab8d8"/>
+      <rect x="32" y="32" width="12" height="8" fill="#8adef8"/>
+      <rect x="40" y="56" width="16" height="12" fill="#0a2a3a"/>
+      <rect x="42" y="58" width="12" height="8" fill="#2a8a4a"/>
+      <rect x="44" y="60" width="8" height="4" fill="#4aff8a" opacity="0.7"/>
+      <rect x="32" y="40" width="12" height="12" fill="#ffffff"/>
+      <rect x="52" y="40" width="12" height="12" fill="#ffffff"/>
+      <rect x="36" y="44" width="4" height="4" fill="#0a2a3a"/>
+      <rect x="56" y="44" width="4" height="4" fill="#0a2a3a"/>
+      <rect x="32" y="36" width="12" height="2" fill="#8adef8"/>
+      <rect x="52" y="36" width="12" height="2" fill="#8adef8"/>
+      <rect x="44" y="16" width="8" height="12" fill="#0a2a3a"/>
+      <rect x="44" y="12" width="8" height="8" fill="#3a8aaa"/>
+      <rect x="44" y="4" width="8" height="8" fill="#ffff00" class="antenna-tip"/>
+      <rect x="72" y="24" width="8" height="20" fill="#0a2a3a"/>
+      <rect x="72" y="16" width="8" height="12" fill="#3a8aaa"/>
+      <rect x="72" y="8" width="8" height="12" fill="#4ab8d8"/>
+      <rect x="72" y="4" width="8" height="4" fill="#8adef8"/>
+      <rect x="40" y="48" width="16" height="2" fill="#8adef8"/>
+      <rect x="40" y="46" width="4" height="2" fill="#8adef8"/>
+      <rect x="52" y="46" width="4" height="2" fill="#8adef8"/>
+    </symbol>
+
+    <!-- DISSOLVING — faded body, red biosensor, rising particles -->
+    <symbol id="strata_dissolve" viewBox="0 0 96 96">
+      <rect x="24" y="28" width="48" height="56" fill="#0a2a3a" opacity="0.3"/>
+      <rect x="28" y="24" width="40" height="60" fill="#0a2a3a" opacity="0.3"/>
+      <rect x="28" y="28" width="40" height="56" fill="#3a8aaa" opacity="0.3"/>
+      <rect x="32" y="32" width="32" height="48" fill="#4ab8d8" opacity="0.3"/>
+      <rect x="32" y="32" width="12" height="8" fill="#8adef8" opacity="0.3"/>
+      <rect x="40" y="56" width="16" height="12" fill="#0a2a3a"/>
+      <rect x="42" y="58" width="12" height="8" fill="#8a2a2a"/>
+      <rect x="44" y="60" width="8" height="4" fill="#ff6a6a" opacity="0.9"/>
+      <rect x="32" y="40" width="12" height="12" fill="#ffffff" opacity="0.3"/>
+      <rect x="52" y="40" width="12" height="12" fill="#ffffff" opacity="0.3"/>
+      <rect x="44" y="16" width="8" height="12" fill="#3a8aaa" opacity="0.3"/>
+      <rect x="44" y="4" width="8" height="8" fill="#ffff00" opacity="0.3"/>
+    </symbol>
+
+    <!-- ═══════ Cr(VI) SPRITE ═══════ -->
+    <symbol id="cr6" viewBox="0 0 96 96">
+      <rect x="20" y="20" width="56" height="56" fill="#4a1020"/>
+      <rect x="24" y="24" width="48" height="48" fill="#cc3300"/>
+      <rect x="28" y="28" width="40" height="40" fill="#ff4400"/>
+      <rect x="28" y="28" width="16" height="16" fill="#ff6633"/>
+      <rect x="44" y="28" width="16" height="16" fill="#ff5511"/>
+      <rect x="28" y="44" width="16" height="16" fill="#ee4400"/>
+      <rect x="44" y="44" width="16" height="16" fill="#ff4400"/>
+      <rect x="28" y="28" width="8" height="8" fill="#ffaa66"/>
+      <rect x="36" y="36" width="4" height="4" fill="#ffcc99"/>
+      <rect x="44" y="44" width="8" height="8" fill="#dd3300"/>
+      <!-- 8 menacing spikes -->
+      <rect x="40" y="8" width="16" height="16" fill="#ff4400"/>
+      <rect x="44" y="4" width="8" height="8" fill="#ff6633"/>
+      <rect x="44" y="4" width="4" height="4" fill="#ffaa66"/>
+      <rect x="40" y="72" width="16" height="16" fill="#ff4400"/>
+      <rect x="44" y="84" width="8" height="8" fill="#cc2200"/>
+      <rect x="8" y="40" width="16" height="16" fill="#ff4400"/>
+      <rect x="4" y="44" width="8" height="8" fill="#ff6633"/>
+      <rect x="72" y="40" width="16" height="16" fill="#ff4400"/>
+      <rect x="84" y="44" width="8" height="8" fill="#cc2200"/>
+      <rect x="16" y="16" width="12" height="12" fill="#ff4400"/>
+      <rect x="12" y="12" width="8" height="8" fill="#ff6633"/>
+      <rect x="68" y="16" width="12" height="12" fill="#ff4400"/>
+      <rect x="76" y="12" width="8" height="8" fill="#ff6633"/>
+      <rect x="16" y="68" width="12" height="12" fill="#ff4400"/>
+      <rect x="12" y="76" width="8" height="8" fill="#cc2200"/>
+      <rect x="68" y="68" width="12" height="12" fill="#ff4400"/>
+      <rect x="76" y="76" width="8" height="8" fill="#cc2200"/>
+      <!-- Angry eyes -->
+      <rect x="32" y="40" width="12" height="8" fill="#ffff00"/>
+      <rect x="52" y="40" width="12" height="8" fill="#ffff00"/>
+      <rect x="34" y="42" width="4" height="4" fill="#000000"/>
+      <rect x="54" y="42" width="4" height="4" fill="#000000"/>
+    </symbol>
+
+    <!-- ═══════ Cr(III) SPRITE ═══════ -->
+    <symbol id="cr3" viewBox="0 0 96 96">
+      <rect x="24" y="24" width="48" height="48" fill="#607080"/>
+      <rect x="28" y="28" width="40" height="40" fill="#a0b8b0"/>
+      <rect x="32" y="32" width="32" height="32" fill="#c0d0c8"/>
+      <rect x="32" y="32" width="16" height="16" fill="#d0e0d8"/>
+      <rect x="48" y="32" width="12" height="16" fill="#b0c0b8"/>
+      <rect x="32" y="48" width="16" height="12" fill="#b0c0b8"/>
+      <rect x="48" y="48" width="12" height="12" fill="#a0b0a8"/>
+      <rect x="32" y="32" width="8" height="8" fill="#e0f0e8"/>
+      <!-- Rounded dimples (no spikes) -->
+      <rect x="44" y="20" width="8" height="4" fill="#a0b0a8"/>
+      <rect x="44" y="72" width="8" height="4" fill="#90a0a0"/>
+      <rect x="20" y="44" width="4" height="8" fill="#a0b0a8"/>
+      <rect x="72" y="44" width="4" height="8" fill="#90a0a0"/>
+      <!-- Calm eyes -->
+      <rect x="32" y="44" width="10" height="6" fill="#ffff00"/>
+      <rect x="54" y="44" width="10" height="6" fill="#ffff00"/>
+      <rect x="34" y="45" width="4" height="4" fill="#606060"/>
+      <rect x="56" y="45" width="4" height="4" fill="#606060"/>
+      <!-- Sparkles -->
+      <rect x="24" y="28" width="6" height="6" fill="#ffffff" class="sparkle sp1"/>
+      <rect x="66" y="56" width="6" height="6" fill="#ffffff" class="sparkle sp2"/>
+      <rect x="56" y="24" width="4" height="4" fill="#ffffff" class="sparkle sp3"/>
+    </symbol>
+
+    <!-- ═══════ NemA ENZYME PARTICLE ═══════ -->
+    <symbol id="nema" viewBox="0 0 8 8">
+      <rect width="8" height="8" fill="#00ffcc"/>
+      <rect x="2" y="2" width="4" height="4" fill="#66ffdd"/>
+    </symbol>
+
+    <!-- ═══════ EQUIPMENT SYMBOLS ═══════ -->
+
+    <symbol id="bioreactor" viewBox="0 0 240 400">
+      <g fill="#0a2030"><rect width="240" height="400"/></g>
+      <g fill="#1a4a5e"><rect width="240" height="8"/><rect width="240" height="8" y="392"/><rect width="8" height="400"/><rect width="8" height="400" x="232"/></g>
+      <g fill="#0a2a3a"><rect x="12" y="12" width="216" height="376"/></g>
+      <g fill="#1a5a6a" opacity="0.3"><rect x="12" y="200" width="216" height="188"/></g>
+      <rect x="60" y="380" width="8" height="8" fill="#7fffe0" opacity="0.7" class="bubble b1"/>
+      <rect x="100" y="360" width="6" height="6" fill="#7fffe0" opacity="0.6" class="bubble b2"/>
+      <rect x="140" y="370" width="8" height="8" fill="#7fffe0" opacity="0.5" class="bubble b3"/>
+      <rect x="180" y="350" width="6" height="6" fill="#7fffe0" opacity="0.7" class="bubble b4"/>
+      <rect x="80" y="340" width="4" height="4" fill="#7fffe0" opacity="0.6" class="bubble b5"/>
+      <rect x="160" y="320" width="6" height="6" fill="#7fffe0" opacity="0.5" class="bubble b6"/>
+      <rect x="120" y="300" width="8" height="8" fill="#7fffe0" opacity="0.4" class="bubble b7"/>
+      <rect x="50" y="280" width="4" height="4" fill="#7fffe0" opacity="0.6" class="bubble b8"/>
+      <rect x="20" y="24" width="12" height="8" fill="#39ff7a" class="led-green"/>
+      <rect x="40" y="24" width="12" height="8" fill="#1b3a6b"/>
+    </symbol>
+
+    <symbol id="monitor" viewBox="0 0 144 96">
+      <g fill="#0a1520"><rect width="144" height="80"/></g>
+      <g fill="#1a2a3a"><rect width="144" height="4"/><rect width="144" height="4" y="76"/><rect width="4" height="80"/><rect width="4" height="80" x="140"/></g>
+      <g fill="#ffffff" opacity="0.08" class="scanlines">
+        <rect y="4" width="136" height="2"/><rect y="12" width="136" height="2"/>
+        <rect y="20" width="136" height="2"/><rect y="28" width="136" height="2"/>
+        <rect y="36" width="136" height="2"/><rect y="44" width="136" height="2"/>
+        <rect y="52" width="136" height="2"/><rect y="60" width="136" height="2"/>
+        <rect y="68" width="136" height="2"/>
+      </g>
+      <g fill="#1a2a3a"><rect x="56" y="80" width="32" height="16"/><rect x="48" y="88" width="48" height="8"/></g>
+    </symbol>
+
+    <symbol id="pipe" viewBox="0 0 32 8">
+      <g fill="#1a3a5a"><rect width="32" height="8"/></g>
+      <g fill="#2a5a7a"><rect y="2" width="32" height="4"/></g>
+      <rect x="0" y="3" width="4" height="2" fill="#7fffe0" opacity="0.6" class="pipe-glow"/>
+    </symbol>
+
+    <symbol id="bokeh" viewBox="0 0 4 4">
+      <rect width="4" height="4" fill="#ffffff" opacity="0.15"/>
+    </symbol>
+
+  </defs>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             BACKGROUND                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect width="1280" height="720" fill="#080e18"/>
+  <rect width="1280" height="720" fill="url(#floorTile)"/>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             ENVIRONMENT & BUBBLES           -->
+  <!-- ═══════════════════════════════════════════ -->
+
+  <!-- Pipes along ceiling -->
+  <g transform="translate(0, 40)">
+    <use href="#pipe" x="60" width="32" height="8"/>
+    <use href="#pipe" x="200" width="32" height="8"/>
+    <use href="#pipe" x="500" width="32" height="8"/>
+    <use href="#pipe" x="700" width="32" height="8"/>
+    <use href="#pipe" x="980" width="32" height="8"/>
+    <use href="#pipe" x="1150" width="32" height="8"/>
+  </g>
+
+  <!-- Full-screen bubbles -->
+  <g>
+    <!-- Base bubbles from original bioreactor, distributed across width and starting at bottom -->
+    <rect x="150" y="720" width="8" height="8" fill="#7fffe0" opacity="0.7" class="bubble b1"/>
+    <rect x="350" y="700" width="6" height="6" fill="#7fffe0" opacity="0.6" class="bubble b2"/>
+    <rect x="550" y="710" width="8" height="8" fill="#7fffe0" opacity="0.5" class="bubble b3"/>
+    <rect x="750" y="690" width="6" height="6" fill="#7fffe0" opacity="0.7" class="bubble b4"/>
+    <rect x="950" y="680" width="4" height="4" fill="#7fffe0" opacity="0.6" class="bubble b5"/>
+    <rect x="1150" y="660" width="6" height="6" fill="#7fffe0" opacity="0.5" class="bubble b6"/>
+    <rect x="250" y="640" width="8" height="8" fill="#7fffe0" opacity="0.4" class="bubble b7"/>
+    <rect x="850" y="620" width="4" height="4" fill="#7fffe0" opacity="0.6" class="bubble b8"/>
+    <!-- Additional bubbles for full screen density -->
+    <rect x="450" y="730" width="8" height="8" fill="#7fffe0" opacity="0.7" class="bubble b1"/>
+    <rect x="1050" y="750" width="6" height="6" fill="#7fffe0" opacity="0.6" class="bubble b2"/>
+    <rect x="50" y="670" width="8" height="8" fill="#7fffe0" opacity="0.5" class="bubble b3"/>
+    <rect x="650" y="760" width="6" height="6" fill="#7fffe0" opacity="0.7" class="bubble b4"/>
+    <rect x="800" y="710" width="4" height="4" fill="#7fffe0" opacity="0.6" class="bubble b5"/>
+    <rect x="1250" y="690" width="6" height="6" fill="#7fffe0" opacity="0.5" class="bubble b6"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             BOKEH PARTICLES                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g>
+    <use href="#bokeh" x="150" y="300" width="4" height="4" class="bokeh bk1"/>
+    <use href="#bokeh" x="400" y="250" width="4" height="4" class="bokeh bk2"/>
+    <use href="#bokeh" x="650" y="350" width="4" height="4" class="bokeh bk3"/>
+    <use href="#bokeh" x="900" y="280" width="4" height="4" class="bokeh bk4"/>
+    <use href="#bokeh" x="1100" y="320" width="4" height="4" class="bokeh bk5"/>
+    <use href="#bokeh" x="250" y="400" width="4" height="4" class="bokeh bk6"/>
+    <use href="#bokeh" x="750" y="380" width="4" height="4" class="bokeh bk7"/>
+    <use href="#bokeh" x="1000" y="400" width="4" height="4" class="bokeh bk8"/>
+    <use href="#bokeh" x="500" y="450" width="4" height="4" class="bokeh bk9"/>
+    <use href="#bokeh" x="1200" y="350" width="4" height="4" class="bokeh bk10"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             TITLE                           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <text x="640" y="55" text-anchor="middle" font-family="'Courier New', 'Lucida Console', monospace" font-size="18" fill="#8adef8" letter-spacing="8">
+    S T R A T A
+    <animate attributeName="opacity"
+      keyTimes="0; 0.167; 0.250; 0.917; 1.0"
+      values="0.7; 0.7; 0.15; 0.15; 0.7"
+      dur="18s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--             CHARACTERS — MASTER ANIMATION SYSTEM           -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--
+    MASTER CLOCK: 18s loop
+    Scene 1:  0.000–0.167  (0–3s)     BMO sleeping
+    Scene 2:  0.167–0.250  (3–4.5s)   Cr(VI) enters, BMO wakes up
+    Scene 3:  0.250–0.361  (4.5–6.5s) BMO chases Cr(VI)
+    Scene 4:  0.361–0.472  (6.5–8.5s) Biosensing scan
+    Scene 5:  0.472–0.639  (8.5–11.5s) NemA reduction Cr(VI)→Cr(III)
+    Scene 6:  0.639–0.750  (11.5–13.5s) Environment safe
+    Scene 7:  0.750–0.861  (13.5–15.5s) Kill switch
+    Scene 8:  0.861–1.000  (15.5–18s) New BMO emerges
+  -->
+
+  <!-- ════ STRATA ════ -->
+  <g id="strata">
+    <!-- Position: rest(400,490) → chase(640,490) → dissolve drift → incubator(560,520) → walk back -->
+    <animateTransform attributeName="transform" type="translate"
+      calcMode="spline"
+      keyTimes="0; 0.250; 0.361; 0.750; 0.833; 0.861; 1.0"
+      values="400 490; 400 490; 640 490; 640 490; 640 500; 560 520; 400 490"
+      keySplines="0 0 1 1; 0.1 0.8 0.3 1; 0 0 1 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0 0 0.58 1"
+      dur="18s" repeatCount="indefinite"/>
+
+    <!-- STRATA Name Tag -->
+    <g transform="translate(0, -95)">
+      <text x="2" y="2" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#000000">STRATA</text>
+      <text x="0" y="0" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#4aff8a">STRATA</text>
+    </g>
+
+    <!-- ── Sleep sprite (scenes 1, 8) ── -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.167; 0.861" values="1; 0; 1"
+        dur="18s" repeatCount="indefinite"/>
+      <g class="breathing">
+        <use href="#strata_sleep" width="140" height="140" x="-70" y="-70"/>
+      </g>
+      <!-- Zzz particles -->
+      <g class="zzz-group">
+        <rect x="30" y="-80" width="7" height="7" fill="#7fffe0" class="zzz z1"/>
+        <rect x="42" y="-92" width="9" height="9" fill="#7fffe0" class="zzz z2"/>
+        <rect x="56" y="-106" width="11" height="11" fill="#7fffe0" class="zzz z3"/>
+      </g>
+    </g>
+
+    <!-- ── Alert sprite (scenes 2, 4) ── -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.167; 0.250; 0.361; 0.472" values="0; 1; 0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <use href="#strata_alert" width="140" height="140" x="-70" y="-70"/>
+      <!-- Exclamation mark (scene 2 only, brief) -->
+      <g>
+        <animate attributeName="opacity" calcMode="discrete"
+          keyTimes="0; 0.167; 0.222" values="0; 1; 0"
+          dur="18s" repeatCount="indefinite"/>
+        <rect x="-3" y="-92" width="10" height="22" fill="#ffff00" rx="1"/>
+        <rect x="-3" y="-65" width="10" height="10" fill="#ffff00" rx="1"/>
+      </g>
+    </g>
+
+    <!-- ── Run sprite (scene 3) ── -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.250; 0.361" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <g class="run-bounce">
+        <use href="#strata_run" width="140" height="140" x="-70" y="-70"/>
+      </g>
+      <!-- Speed lines trailing behind -->
+      <rect x="-95" y="-15" width="30" height="3" fill="#8adef8" opacity="0.5" class="speed-line sl1"/>
+      <rect x="-88" y="2" width="22" height="3" fill="#8adef8" opacity="0.35" class="speed-line sl2"/>
+      <rect x="-100" y="18" width="35" height="3" fill="#8adef8" opacity="0.45" class="speed-line sl3"/>
+      <rect x="-82" y="-28" width="18" height="3" fill="#8adef8" opacity="0.3" class="speed-line sl4"/>
+    </g>
+
+    <!-- ── Wave sprite (scenes 5, 6) ── -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.472; 0.750" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <g class="wave-rock">
+        <use href="#strata_wave" width="140" height="140" x="-70" y="-70"/>
+      </g>
+    </g>
+
+    <!-- ── Dissolve sprite (scene 7) ── -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.750; 0.861" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <use href="#strata_dissolve" width="140" height="140" x="-70" y="-70"/>
+      <!-- Dissolve particles rising -->
+      <rect x="-32" y="-35" width="6" height="6" fill="#8adef8" class="particle p1"/>
+      <rect x="-5" y="-28" width="6" height="6" fill="#4ab8d8" class="particle p2"/>
+      <rect x="22" y="-32" width="6" height="6" fill="#8adef8" class="particle p3"/>
+      <rect x="-18" y="-5" width="6" height="6" fill="#4ab8d8" class="particle p4"/>
+      <rect x="28" y="5" width="6" height="6" fill="#8adef8" class="particle p5"/>
+      <rect x="-28" y="15" width="6" height="6" fill="#4ab8d8" class="particle p6"/>
+      <rect x="8" y="22" width="6" height="6" fill="#8adef8" class="particle p7"/>
+      <rect x="35" y="18" width="6" height="6" fill="#4ab8d8" class="particle p8"/>
+    </g>
+
+    <!-- Biosensor glow (scenes 4–5, between sprites) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.361; 0.639" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <rect x="-10" y="8" width="20" height="14" fill="#4aff8a" opacity="0.25" class="biosensor-pulse"/>
+    </g>
+  </g>
+
+  <!-- ════ Cr(VI) / Cr(III) ════ -->
+  <g id="crx">
+    <!-- Position: off-screen → enter → retreat → hold → exit -->
+    <animateTransform attributeName="transform" type="translate"
+      calcMode="spline"
+      keyTimes="0; 0.167; 0.250; 0.361; 0.750; 0.861; 1.0"
+      values="1400 490; 1400 490; 850 490; 760 490; 760 490; 1400 490; 1400 490"
+      keySplines="0 0 1 1; 0.25 0.1 0.25 1; 0.42 0 0.58 1; 0 0 1 1; 0.4 0 0.2 1; 0 0 1 1"
+      dur="18s" repeatCount="indefinite"/>
+
+    <!-- Cr(VI) sprite (visible until mid-scene 5) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.556; 0.861" values="1; 0; 1"
+        dur="18s" repeatCount="indefinite"/>
+      <use href="#cr6" width="140" height="140" x="-70" y="-70"/>
+      <!-- Smoke trail -->
+      <rect x="55" y="40" width="8" height="8" fill="#7a3088" opacity="0.5" class="smoke s1"/>
+      <rect x="65" y="48" width="8" height="8" fill="#7a3088" opacity="0.4" class="smoke s2"/>
+      <rect x="50" y="55" width="8" height="8" fill="#7a3088" opacity="0.3" class="smoke s3"/>
+      
+      <!-- Cr(VI) Name Tag -->
+      <g transform="translate(0, -95)">
+        <text x="2" y="2" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#000000">Cr(VI)</text>
+        <text x="0" y="0" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#ff4400">Cr(VI)</text>
+      </g>
+    </g>
+
+    <!-- Cr(III) sprite (visible from mid-scene 5 to scene 7) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.556; 0.861" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <use href="#cr3" width="140" height="140" x="-70" y="-70"/>
+      
+      <!-- Cr(III) Name Tag -->
+      <g transform="translate(0, -95)">
+        <text x="2" y="2" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#000000">Cr(III)</text>
+        <text x="0" y="0" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#a0b8b0">Cr(III)</text>
+      </g>
+    </g>
+
+    <!-- NemA enzyme particles orbiting (scene 5 only) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.472; 0.639" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="rotate"
+          from="0" to="360" dur="2s" repeatCount="indefinite"/>
+        <use href="#nema" width="12" height="12" x="-6" y="-88"/>
+        <use href="#nema" width="12" height="12" x="82" y="-6"/>
+        <use href="#nema" width="12" height="12" x="-6" y="76"/>
+        <use href="#nema" width="12" height="12" x="-88" y="-6"/>
+        <use href="#nema" width="12" height="12" x="55" y="-62"/>
+        <use href="#nema" width="12" height="12" x="-68" y="50"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ════ Scan Pulse (scene 4, fixed position between characters) ════ -->
+  <g transform="translate(700, 490)">
+    <animate attributeName="opacity" calcMode="discrete"
+      keyTimes="0; 0.361; 0.472" values="0; 1; 0"
+      dur="18s" repeatCount="indefinite"/>
+    <rect x="-80" y="-80" width="160" height="160" fill="none"
+          stroke="#4aff8a" stroke-width="3" opacity="0.7" class="scan-ring sr1"/>
+    <rect x="-120" y="-120" width="240" height="240" fill="none"
+          stroke="#4aff8a" stroke-width="2" opacity="0.35" class="scan-ring sr2"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             LIGHTING OVERLAYS               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g style="mix-blend-mode: multiply; pointer-events: none;">
+    <!-- Scene 1, 8: Cool teal ambient -->
+    <rect width="1280" height="720" fill="#1a4a5e">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.167; 0.250; 0.861; 1.0"
+        values="0.15; 0.15; 0; 0; 0.15"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Scene 2: Purple menace -->
+    <rect width="1280" height="720" fill="#7a3088">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.139; 0.167; 0.250; 0.306; 1.0"
+        values="0; 0; 0.35; 0.35; 0; 0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Scene 3–4: Active teal -->
+    <rect width="1280" height="720" fill="#2a6a7a">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.250; 0.306; 0.472; 0.528; 1.0"
+        values="0; 0; 0.2; 0.2; 0; 0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Scene 5: Emerald NemA -->
+    <rect width="1280" height="720" fill="#2a8060">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.472; 0.528; 0.639; 0.694; 1.0"
+        values="0; 0; 0.25; 0.25; 0; 0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Scene 6: Warm success -->
+    <rect width="1280" height="720" fill="#3a9060">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.639; 0.694; 0.750; 0.806; 1.0"
+        values="0; 0; 0.2; 0.2; 0; 0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Scene 7: Red danger -->
+    <rect width="1280" height="720" fill="#a03020">
+      <animate attributeName="opacity"
+        keyTimes="0; 0.750; 0.778; 0.861; 0.889; 1.0"
+        values="0; 0; 0.3; 0.15; 0; 0"
+        dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Kill switch red flash -->
+  <rect width="1280" height="720" fill="#ff0000" pointer-events="none">
+    <animate attributeName="opacity"
+      keyTimes="0; 0.750; 0.764; 0.778; 0.792; 1.0"
+      values="0; 0; 0.35; 0; 0; 0"
+      dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Cr(VI) entrance white flash -->
+  <rect width="1280" height="720" fill="#ffffff" pointer-events="none">
+    <animate attributeName="opacity"
+      keyTimes="0; 0.160; 0.167; 0.181; 1.0"
+      values="0; 0; 0.25; 0; 0"
+      dur="18s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             MODULE LABELS                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <g font-family="'Courier New', 'Lucida Console', monospace" font-size="28" font-weight="bold" letter-spacing="2">
+    <!-- Module 1: Biosensor (scenes 3–4) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.250; 0.472" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <text x="642" y="687" text-anchor="middle" fill="#000000">MODULE 1 · ChrB-sfGFP BIOSENSOR</text>
+      <text x="640" y="685" text-anchor="middle" fill="#4aff8a">MODULE 1 · ChrB-sfGFP BIOSENSOR</text>
+    </g>
+    <!-- Module 2: NemA (scene 5) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.472; 0.639" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <text x="642" y="687" text-anchor="middle" fill="#000000">MODULE 2 · NemA CHROMATE REDUCTASE</text>
+      <text x="640" y="685" text-anchor="middle" fill="#00ffcc">MODULE 2 · NemA CHROMATE REDUCTASE</text>
+    </g>
+    <!-- Neutralised (scene 6) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.639; 0.750" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <text x="642" y="687" text-anchor="middle" fill="#000000">Cr(III) NEUTRALISED · ENVIRONMENT SAFE</text>
+      <text x="640" y="685" text-anchor="middle" fill="#8adef8">Cr(III) NEUTRALISED · ENVIRONMENT SAFE</text>
+    </g>
+    <!-- Module 3: Kill Switch (scene 7) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.750; 0.861" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <text x="642" y="687" text-anchor="middle" fill="#000000">MODULE 3 · HOLIN-ENDOLYSIN KILL SWITCH</text>
+      <text x="640" y="685" text-anchor="middle" fill="#ff6b6b">MODULE 3 · HOLIN-ENDOLYSIN KILL SWITCH</text>
+    </g>
+    <!-- New cycle (scene 8) -->
+    <g>
+      <animate attributeName="opacity" calcMode="discrete"
+        keyTimes="0; 0.861; 0.972" values="0; 1; 0"
+        dur="18s" repeatCount="indefinite"/>
+      <text x="642" y="687" text-anchor="middle" fill="#000000">NEW CYCLE · MONITORING RESUMED</text>
+      <text x="640" y="685" text-anchor="middle" fill="#7fffe0">NEW CYCLE · MONITORING RESUMED</text>
+    </g>
+  </g>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             VIGNETTE + CRT                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <rect width="1280" height="720" fill="url(#vignette)" pointer-events="none"/>
+  <rect width="1280" height="720" fill="url(#crt)" opacity="0.04" pointer-events="none"/>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--             CSS ANIMATIONS                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <style>
+    /* ── Full-screen bubbles ── */
+    .bubble.b1 { animation: bubbleRise1 8s ease-in-out infinite; }
+    .bubble.b2 { animation: bubbleRise2 9s ease-in-out infinite 0.3s; }
+    .bubble.b3 { animation: bubbleRise3 7s ease-in-out infinite 0.6s; }
+    .bubble.b4 { animation: bubbleRise4 8.5s ease-in-out infinite 0.9s; }
+    .bubble.b5 { animation: bubbleRise5 7.5s ease-in-out infinite 1.2s; }
+    .bubble.b6 { animation: bubbleRise6 9.5s ease-in-out infinite 1.5s; }
+    .bubble.b7 { animation: bubbleRise7 6.5s ease-in-out infinite 1.8s; }
+    .bubble.b8 { animation: bubbleRise8 8s ease-in-out infinite 2.1s; }
+    @keyframes bubbleRise1 { 0% { transform: translateY(0); opacity: 0.7; } 80% { opacity: 0.2; } 100% { transform: translateY(-800px); opacity: 0; } }
+    @keyframes bubbleRise2 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-850px); opacity: 0; } }
+    @keyframes bubbleRise3 { 0% { transform: translateY(0); opacity: 0.5; } 80% { opacity: 0.2; } 100% { transform: translateY(-750px); opacity: 0; } }
+    @keyframes bubbleRise4 { 0% { transform: translateY(0); opacity: 0.7; } 80% { opacity: 0.2; } 100% { transform: translateY(-820px); opacity: 0; } }
+    @keyframes bubbleRise5 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-800px); opacity: 0; } }
+    @keyframes bubbleRise6 { 0% { transform: translateY(0); opacity: 0.5; } 80% { opacity: 0.2; } 100% { transform: translateY(-880px); opacity: 0; } }
+    @keyframes bubbleRise7 { 0% { transform: translateY(0); opacity: 0.4; } 80% { opacity: 0.1; } 100% { transform: translateY(-700px); opacity: 0; } }
+    @keyframes bubbleRise8 { 0% { transform: translateY(0); opacity: 0.6; } 80% { opacity: 0.2; } 100% { transform: translateY(-810px); opacity: 0; } }
+
+    /* ── Monitor scanlines ── */
+    .scanlines { animation: scanlineDrift 1.5s linear infinite; }
+    @keyframes scanlineDrift { 0% { transform: translateX(0); } 100% { transform: translateX(-20px); } }
+
+    /* ── Pipe glow ── */
+    .pipe-glow { animation: pipeGlowTravel 4s linear infinite; }
+    @keyframes pipeGlowTravel { 0% { transform: translateX(0); opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateX(320px); opacity: 0; } }
+
+    /* ── Bokeh float ── */
+    .bokeh.bk1  { animation: bkF1  6s ease-in-out infinite; }
+    .bokeh.bk2  { animation: bkF2  6s ease-in-out infinite 0.5s; }
+    .bokeh.bk3  { animation: bkF3  6s ease-in-out infinite 1s; }
+    .bokeh.bk4  { animation: bkF4  6s ease-in-out infinite 1.5s; }
+    .bokeh.bk5  { animation: bkF5  6s ease-in-out infinite 2s; }
+    .bokeh.bk6  { animation: bkF6  6s ease-in-out infinite 2.5s; }
+    .bokeh.bk7  { animation: bkF7  6s ease-in-out infinite 3s; }
+    .bokeh.bk8  { animation: bkF8  6s ease-in-out infinite 3.5s; }
+    .bokeh.bk9  { animation: bkF9  6s ease-in-out infinite 4s; }
+    .bokeh.bk10 { animation: bkF10 6s ease-in-out infinite 4.5s; }
+    @keyframes bkF1  { 0%{transform:translate(0,0);opacity:.15}50%{transform:translate(-5px,-60px);opacity:.15}100%{transform:translate(0,-120px);opacity:0} }
+    @keyframes bkF2  { 0%{transform:translate(0,0);opacity:.12}50%{transform:translate(12px,-55px);opacity:.15}100%{transform:translate(0,-115px);opacity:0} }
+    @keyframes bkF3  { 0%{transform:translate(0,0);opacity:.15}50%{transform:translate(-10px,-65px);opacity:.10}100%{transform:translate(0,-125px);opacity:0} }
+    @keyframes bkF4  { 0%{transform:translate(0,0);opacity:.14}50%{transform:translate(8px,-58px);opacity:.13}100%{transform:translate(0,-118px);opacity:0} }
+    @keyframes bkF5  { 0%{transform:translate(0,0);opacity:.13}50%{transform:translate(-7px,-62px);opacity:.14}100%{transform:translate(0,-122px);opacity:0} }
+    @keyframes bkF6  { 0%{transform:translate(0,0);opacity:.15}50%{transform:translate(9px,-60px);opacity:.12}100%{transform:translate(0,-120px);opacity:0} }
+    @keyframes bkF7  { 0%{transform:translate(0,0);opacity:.12}50%{transform:translate(-8px,-63px);opacity:.11}100%{transform:translate(0,-123px);opacity:0} }
+    @keyframes bkF8  { 0%{transform:translate(0,0);opacity:.14}50%{transform:translate(6px,-59px);opacity:.13}100%{transform:translate(0,-119px);opacity:0} }
+    @keyframes bkF9  { 0%{transform:translate(0,0);opacity:.13}50%{transform:translate(-11px,-61px);opacity:.12}100%{transform:translate(0,-121px);opacity:0} }
+    @keyframes bkF10 { 0%{transform:translate(0,0);opacity:.15}50%{transform:translate(13px,-64px);opacity:.14}100%{transform:translate(0,-124px);opacity:0} }
+
+    /* ── Antenna glow ── */
+    .antenna-tip { animation: antennaGlow 1.4s ease-in-out infinite; }
+    @keyframes antennaGlow { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+
+    /* ── Sparkle ── */
+    .sparkle.sp1, .sparkle.sp2, .sparkle.sp3 { animation: sparkle 0.4s ease-in-out infinite; }
+    .sparkle.sp2 { animation-delay: 0.2s; }
+    .sparkle.sp3 { animation-delay: 0.3s; }
+    @keyframes sparkle { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+    /* ── Cr(VI) smoke ── */
+    .smoke.s1 { animation: smokeRise1 2s ease-out infinite; }
+    .smoke.s2 { animation: smokeRise2 2s ease-out infinite 0.5s; }
+    .smoke.s3 { animation: smokeRise3 2s ease-out infinite 1s; }
+    @keyframes smokeRise1 { 0% { transform: translate(0, 0); opacity: 0.5; } 100% { transform: translate(-10px, -40px); opacity: 0; } }
+    @keyframes smokeRise2 { 0% { transform: translate(0, 0); opacity: 0.4; } 100% { transform: translate(15px, -45px); opacity: 0; } }
+    @keyframes smokeRise3 { 0% { transform: translate(0, 0); opacity: 0.3; } 100% { transform: translate(-5px, -35px); opacity: 0; } }
+
+    /* ── STRATA breathing (sleep) ── */
+    .breathing { animation: breathe 3s ease-in-out infinite; }
+    @keyframes breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+    /* ── Zzz float ── */
+    .zzz.z1 { animation: zzzFloat 2.5s ease-in-out infinite; }
+    .zzz.z2 { animation: zzzFloat 2.5s ease-in-out infinite 0.8s; }
+    .zzz.z3 { animation: zzzFloat 2.5s ease-in-out infinite 1.6s; }
+    @keyframes zzzFloat {
+      0% { transform: translate(0, 0); opacity: 0.7; }
+      50% { transform: translate(6px, -18px); opacity: 0.35; }
+      100% { transform: translate(12px, -36px); opacity: 0; }
+    }
+
+    /* ── Run bounce ── */
+    .run-bounce { animation: runBounce 0.25s ease-in-out infinite; }
+    @keyframes runBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+    /* ── Speed lines ── */
+    .speed-line.sl1 { animation: speedStreak 0.35s linear infinite; }
+    .speed-line.sl2 { animation: speedStreak 0.35s linear infinite 0.08s; }
+    .speed-line.sl3 { animation: speedStreak 0.35s linear infinite 0.16s; }
+    .speed-line.sl4 { animation: speedStreak 0.35s linear infinite 0.24s; }
+    @keyframes speedStreak {
+      0% { transform: translateX(0); opacity: 0.6; }
+      100% { transform: translateX(-55px); opacity: 0; }
+    }
+
+    /* ── Wave rock ── */
+    .wave-rock { animation: waveRock 1s ease-in-out infinite alternate; }
+    @keyframes waveRock { 0% { transform: rotate(-2deg); } 100% { transform: rotate(2deg); } }
+
+    /* ── Dissolve particles ── */
+    .particle.p1 { animation: dissolve1 2s ease-out infinite; }
+    .particle.p2 { animation: dissolve2 2s ease-out infinite 0.2s; }
+    .particle.p3 { animation: dissolve3 2s ease-out infinite 0.4s; }
+    .particle.p4 { animation: dissolve4 2s ease-out infinite 0.6s; }
+    .particle.p5 { animation: dissolve5 2s ease-out infinite 0.8s; }
+    .particle.p6 { animation: dissolve6 2s ease-out infinite 1s; }
+    .particle.p7 { animation: dissolve7 2s ease-out infinite 1.2s; }
+    .particle.p8 { animation: dissolve8 2s ease-out infinite 1.4s; }
+    @keyframes dissolve1 { 0%{transform:translate(0,0);opacity:.8}100%{transform:translate(-20px,-85px);opacity:0} }
+    @keyframes dissolve2 { 0%{transform:translate(0,0);opacity:.7}100%{transform:translate(25px,-90px);opacity:0} }
+    @keyframes dissolve3 { 0%{transform:translate(0,0);opacity:.6}100%{transform:translate(-15px,-75px);opacity:0} }
+    @keyframes dissolve4 { 0%{transform:translate(0,0);opacity:.8}100%{transform:translate(30px,-80px);opacity:0} }
+    @keyframes dissolve5 { 0%{transform:translate(0,0);opacity:.5}100%{transform:translate(-25px,-95px);opacity:0} }
+    @keyframes dissolve6 { 0%{transform:translate(0,0);opacity:.7}100%{transform:translate(20px,-78px);opacity:0} }
+    @keyframes dissolve7 { 0%{transform:translate(0,0);opacity:.6}100%{transform:translate(-10px,-70px);opacity:0} }
+    @keyframes dissolve8 { 0%{transform:translate(0,0);opacity:.8}100%{transform:translate(35px,-100px);opacity:0} }
+
+    /* ── Biosensor glow ── */
+    .biosensor-pulse { animation: bioGlow 0.8s ease-in-out infinite alternate; }
+    @keyframes bioGlow { 0% { opacity: 0.15; } 100% { opacity: 0.5; } }
+
+    /* ── Scan pulse rings ── */
+    .scan-ring.sr1 { animation: scanExpand1 1.5s ease-out infinite; }
+    .scan-ring.sr2 { animation: scanExpand2 1.5s ease-out infinite 0.4s; }
+    @keyframes scanExpand1 {
+      0% { transform: scale(0.3); opacity: 0.8; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+    @keyframes scanExpand2 {
+      0% { transform: scale(0.3); opacity: 0.5; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* ── LED pulse ── */
+    .led-green { animation: ledPulse 1.2s ease-in-out infinite; }
+    @keyframes ledPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  </style>
+
+</svg>
