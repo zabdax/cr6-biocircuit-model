@@ -10,7 +10,7 @@
 [![Python 3.11](https://img.shields.io/badge/python-3.11.x-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](.python-version)
 [![Status: Computational](https://img.shields.io/badge/status-computational%20only-orange?style=for-the-badge)](#important-caveat)
 [![Code: documented](https://img.shields.io/badge/code-documented-brightgreen?style=for-the-badge)](#code-and-data-availability)
-[![Repo: GitHub](https://img.shields.io/badge/repo-zabdax%2Fcr6--biocircuit--model-181717?style=for-the-badge&logo=github)](https://github.com/zabdax/cr6-biocircuit-model)
+[![Repo: GitHub](https://img.shields.io/badge/repo-zabdax%2FSTRATA-181717?style=for-the-badge&logo=github)](https://github.com/zabdax/STRATA)
 
 </div>
 
@@ -286,7 +286,7 @@ The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff) (CFF 1.
   date      = {2026-07-03},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.XXXXXXX},  % (DOI assigned on first Zenodo release)
-  url       = {https://github.com/zabdax/cr6-biocircuit-model},
+  url       = {https://github.com/zabdax/STRATA},
   orcid     = {0009-0002-2322-8553}
 }
 ```
