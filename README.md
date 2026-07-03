@@ -287,7 +287,7 @@ The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff) (CFF 1.
   version   = {1.0.0},
   date      = {2026-07-03},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.XXXXXXX},  % (DOI assigned on first Zenodo release)
+  doi       = {10.5281/zenodo.21168208},  % (DOI assigned on first Zenodo release)
   url       = {https://github.com/zabdax/STRATA},
   orcid     = {0009-0002-2322-8553}
 }
