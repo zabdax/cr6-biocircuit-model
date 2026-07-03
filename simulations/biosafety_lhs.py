@@ -241,65 +241,111 @@ def run_lhs():
     # -----------------------------------------------------------------
     # 5. 3-panel figure
     # -----------------------------------------------------------------
-    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+    # Typography hierarchy (consistent across all panels)
+    FS_TITLE   = 19   # figure suptitle
+    FS_PANEL   = 15   # panel sub-titles (a), (b), (c)
+    FS_AXLAB   = 12.5 # axis labels
+    FS_TICK    = 10.5 # tick labels
+    FS_LEGEND  = 10.5 # legend text
+    FS_ANNOT   = 7.5  # heatmap cell annotations
 
-    # Panel 1: CDF of P_escape (log-x axis)
+    # Use GridSpec for unequal subplot widths; panel (c) gets more room
+    fig = plt.figure(figsize=(15, 4.8))
+    gs = fig.add_gridspec(
+        nrows=1, ncols=3,
+        width_ratios=[1.2, 1.2, 1.7],
+        wspace=0.32,
+        left=0.06, right=0.97, top=0.86, bottom=0.16,
+    )
+    ax_cdf = fig.add_subplot(gs[0, 0])
+    ax_hist = fig.add_subplot(gs[0, 1])
+    ax_heat = fig.add_subplot(gs[0, 2])
+
+    # -----------------------------------------------------------------
+    # Panel (a): CDF of P_escape (log-x axis)
+    # -----------------------------------------------------------------
     sorted_P = np.sort(P_escape)
     cdf = np.arange(1, LHS_N_SAMPLES + 1) / LHS_N_SAMPLES
-    axes[0].plot(sorted_P, cdf, lw=1.5, color="C0")
-    axes[0].axvline(DE_MINIMIS_RISK_THRESHOLD, color="orange", linestyle=":", lw=2,
-                    label=f"10^-15 threshold")
-    axes[0].axvline(median, color="C2", linestyle="--", lw=1.5,
-                    label=f"median = {median:.2e}")
-    axes[0].set_xscale("log")
-    axes[0].set_xlabel("P_escape (30-day)")
-    axes[0].set_ylabel("CDF")
-    axes[0].set_title("(a) CDF of P_escape over 10,000 LHS samples")
-    axes[0].legend(loc="lower right", fontsize=9)
-    axes[0].grid(True, which="both", alpha=0.3)
-    axes[0].set_xlim(1e-35, 2.0)
+    ax_cdf.plot(sorted_P, cdf, lw=2.5, color="C0", solid_capstyle="round")
+    ax_cdf.axvline(DE_MINIMIS_RISK_THRESHOLD, color="orange", linestyle=":",
+                   lw=2, label=r"de minimis ($10^{-15}$)")
+    ax_cdf.axvline(median, color="C2", linestyle="--", lw=1.8,
+                   label=f"median = {median:.2e}")
+    ax_cdf.set_xscale("log")
+    ax_cdf.set_xlabel("P_escape (30-day)", fontsize=FS_AXLAB)
+    ax_cdf.set_ylabel("CDF", fontsize=FS_AXLAB)
+    ax_cdf.set_title("(a) CDF of P_escape over 10,000 LHS samples",
+                     fontsize=FS_PANEL, pad=8)
+    # Legend moved to upper-left so it does not overlap the rising CDF
+    ax_cdf.legend(loc="upper left", fontsize=FS_LEGEND, framealpha=0.92,
+                  edgecolor="0.7")
+    ax_cdf.grid(True, which="both", alpha=0.3)
+    ax_cdf.tick_params(axis="both", labelsize=FS_TICK)
+    ax_cdf.set_xlim(1e-35, 2.0)
 
-    # Panel 2: histogram of log10(P_escape)
+    # -----------------------------------------------------------------
+    # Panel (b): Histogram of log10(P_escape)
+    # -----------------------------------------------------------------
     log_P_plot = np.log10(np.maximum(P_escape, 1e-50))
-    axes[1].hist(log_P_plot, bins=60, color="C0", edgecolor="black", linewidth=0.4)
-    axes[1].axvline(np.log10(DE_MINIMIS_RISK_THRESHOLD), color="orange",
-                    linestyle=":", lw=2, label=f"10^-15 threshold")
-    axes[1].axvline(np.log10(median), color="C2", linestyle="--", lw=1.5,
+    ax_hist.hist(log_P_plot, bins=60, color="C0", edgecolor="black",
+                 linewidth=0.25, alpha=0.75)
+    ax_hist.axvline(np.log10(DE_MINIMIS_RISK_THRESHOLD), color="orange",
+                    linestyle=":", lw=2, label=r"de minimis ($10^{-15}$)")
+    ax_hist.axvline(np.log10(median), color="C2", linestyle="--", lw=1.8,
                     label=f"median = {median:.2e}")
-    axes[1].set_xlabel("log10(P_escape)")
-    axes[1].set_ylabel("count")
-    axes[1].set_title("(b) Distribution of log10(P_escape)")
-    axes[1].legend(loc="upper left", fontsize=9)
-    axes[1].grid(True, alpha=0.3)
+    ax_hist.set_xlabel(r"$\log_{10}(P_\mathrm{escape})$", fontsize=FS_AXLAB)
+    ax_hist.set_ylabel("count", fontsize=FS_AXLAB)
+    ax_hist.set_title("(b) Distribution of " + r"$\log_{10}(P_\mathrm{escape})$",
+                      fontsize=FS_PANEL, pad=8)
+    ax_hist.legend(loc="upper left", fontsize=FS_LEGEND, framealpha=0.92,
+                   edgecolor="0.7")
+    ax_hist.grid(True, alpha=0.3)
+    ax_hist.tick_params(axis="both", labelsize=FS_TICK)
 
-    # Panel 3: Spearman rank correlation heatmap
+    # -----------------------------------------------------------------
+    # Panel (c): Spearman rank correlation heatmap
+    # -----------------------------------------------------------------
     rho_vec = np.array([r[1] for r in rhos[::-1]])  # restore input order
     labels_short = [
-        "mu_bp", "p_thyA", "p_dapA", "V", "rho_max", "g", "T", "L_target"
+        r"$\mu_\mathrm{bp}$",
+        r"$p_\mathrm{thyA}$",
+        r"$p_\mathrm{dapA}$",
+        r"$V$",
+        r"$\rho_\mathrm{max}$",
+        r"$g$",
+        r"$T$",
+        r"$L_\mathrm{target}$",
     ]
-    im = axes[2].imshow(
+    im = ax_heat.imshow(
         rho_vec.reshape(1, -1),
         aspect="auto",
         cmap="RdBu_r",
         vmin=-1.0,
         vmax=1.0,
     )
-    axes[2].set_xticks(range(8))
-    axes[2].set_xticklabels(labels_short, rotation=45, ha="right", fontsize=9)
-    axes[2].set_yticks([0])
-    axes[2].set_yticklabels(["rho_spearman(log10(input), log10(P_esc))"])
-    axes[2].set_title("(c) Rank correlation: input -> P_escape")
+    ax_heat.set_xticks(range(8))
+    ax_heat.set_xticklabels(labels_short, rotation=40, ha="right",
+                            fontsize=FS_TICK)
+    ax_heat.set_yticks([0])
+    # Concise scientific row label; full description belongs in caption
+    ax_heat.set_yticklabels([r"Spearman $\rho$"], fontsize=FS_AXLAB)
+    ax_heat.set_title("(c) Rank correlation: input " + r"$\rightarrow$" +
+                      " P_escape", fontsize=FS_PANEL, pad=8)
     for j in range(8):
-        axes[2].text(j, 0, f"{rho_vec[j]:+.2f}", ha="center", va="center",
-                     color="white" if abs(rho_vec[j]) > 0.5 else "black", fontsize=9)
-    fig.colorbar(im, ax=axes[2], fraction=0.06, pad=0.08)
+        ax_heat.text(j, 0, f"{rho_vec[j]:+.2f}", ha="center", va="center",
+                     color="white" if abs(rho_vec[j]) > 0.5 else "black",
+                     fontsize=FS_ANNOT)
+    ax_heat.tick_params(axis="x", which="both", length=0)  # clean tick marks
+    cbar = fig.colorbar(im, ax=ax_heat, fraction=0.046, pad=0.08)
+    cbar.ax.tick_params(labelsize=FS_TICK)
+    cbar.set_label(r"Spearman $\rho$", fontsize=FS_AXLAB)
 
+    # Figure suptitle
     fig.suptitle(
-        f"Global LHS Uncertainty Quantification (Pillar 4c): N={LHS_N_SAMPLES} samples, "
-        f"8 parameters, log-uniform",
-        fontsize=12, y=1.02,
+        f"Global LHS Uncertainty Quantification (Pillar 4c): "
+        f"$N = {LHS_N_SAMPLES:,}$ samples, 8 parameters, log-uniform",
+        fontsize=FS_TITLE, y=0.985,
     )
-    fig.tight_layout()
     png_path = os.path.join(out_dir, "biosafety_lhs.png")
     fig.savefig(png_path, dpi=300, bbox_inches="tight")
     plt.close(fig)

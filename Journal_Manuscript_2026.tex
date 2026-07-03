@@ -22,6 +22,7 @@
 
 %% ---- Graphics & Tables ---------------------------------------
 \usepackage{graphicx}
+\graphicspath{{assets/}{./assets/}{../assets/}}   % locate ORCID logo
 \usepackage{booktabs}
 \usepackage{array}              % richer column types in tabular
 \usepackage{caption}
@@ -41,26 +42,13 @@
 
 %% ---- Authors & Affiliations ----------------------------------
 \usepackage{authblk}
-\usepackage{orcidlink}
 
 %% ---- References & Hyperlinks ---------------------------------
 \usepackage{cite}
 
 \usepackage[dvipsnames]{xcolor}
-%% ---- Hyperref MUST be the last package loaded ----------------
-%% Disable the PDF link-border rectangle around clickable images
-%% (colorlinks=true already handles text links; this handles image links
-%%  such as the ORCID iD logo in the author block).
-\usepackage[colorlinks=true,
-            linkcolor=blue!70!black,
-            citecolor=blue!70!black,
-            urlcolor=blue!70!black]{hyperref}
 
 
-%% Disable the PDF link-border rectangle around clickable images
-%% (colorlinks=true already handles text links; this handles image links
-%%  such as the ORCID iD logo in the author block).
-\hypersetup{pdfborder={0 0 0}}
 %% ---- Widow / Orphan Penalties --------------------------------
 \widowpenalty=10000
 \clubpenalty=10000
@@ -72,6 +60,19 @@
 \setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
 \setlength{\floatsep}{8pt plus 2pt minus 2pt}
 \setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+%% ---- Hyperref configuration (Overleaf auto-loads hyperref) ---
+%% Overleaf auto-prepends \usepackage{hyperref} with empty options,
+%% so we must NOT load it again. We configure it via \hypersetup
+%% (which works whether hyperref was loaded by Overleaf or by us).
+\hypersetup{colorlinks=true,
+            linkcolor=blue!70!black,
+            citecolor=blue!70!black,
+            urlcolor=blue!70!black,
+            pdfborder={0 0 0}}
+
+%% ORCID iD logo (depends on hyperref + tikz, so it must come after)
+\usepackage{orcidlink}
 
 %% ---- Float-placement tuning ----------------------------------
 %% Allow up to 90 % of a page to be floats, up to 4 floats per page.
@@ -93,16 +94,12 @@
   and Bioremediation of Hexavalent Chromium in
   Closed-System Microcosms}
 
-
-\author{Zubayer Hasan Shaad%
+\author[1]{Zubayer Hasan Shaad%
   \thanks{Corresponding author. Email:
-    \texttt{mdzubayerhasanshaad99@gmail.com}}%
-  \textsuperscript{\href{https://orcid.org/0009-0002-2322-8553}{%
-    \raisebox{-0.15em}{\includegraphics[height=0.8em]{orcid_logo.png}}%
-\affil{Govt.\ Tolaram College}
-\date{July 2026}
-  }}%
+    \texttt{mdzubayerhasanshaad99@gmail.com}}\,\orcidlink{0009-0002-2322-8553}%
 }
+\affil[1]{Govt.\ Tolaram College, Narayanganj, Bangladesh}
+\date{July 2026}
 
 %% ============================================================
 \begin{document}
