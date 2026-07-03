@@ -995,13 +995,24 @@ Circuit burden 4.5\%, growth reduction 33\%
 \end{tabular}
 \end{table*}
 
-\FloatBarrier
-
 %% ============================================================
 \section{Results}
 %% ============================================================
 
 \subsection{Circuit Systems Dynamics: 96-Hour ODE Simulation}
+
+The 96-hour coupled-ODE simulation (Fig.~\ref{fig:ode}) reveals precise
+temporal coordination across all three modules. Starting from an initial
+condition of 100~$\mu$M Cr(VI) and $1 \times 10^7$~CFU/mL, the system
+executes the remediation protocol in three distinct phases.
+\textbf{Phase~1 (0--8~h):} sfGFP fluorescence rises rapidly as ChrB
+releases the \textit{P}\textsubscript{chrB} operator; the kill switch is
+held quiescent. \textbf{Phase~2 (8--44~h):} NemA reaches
+steady-state concentration; Cr(VI) decreases approximately linearly at
+$\sim$2.3~$\mu$M/h, falling below 100~nM by $t = 44$~h.
+\textbf{Phase~3 (44--96~h):} The kill-switch AND-gate fires; Holin
+crosses $\theta_{lysis} = 5$ at $t \approx 72$~h, and live-cell density
+drops by ${>}4$~orders of magnitude by 96~h.
 
 \begin{figure*}[!t]
   \centering
@@ -1017,21 +1028,20 @@ Circuit burden 4.5\%, growth reduction 33\%
   \label{fig:ode}
 \end{figure*}
 
-The 96-hour coupled-ODE simulation (Fig.~\ref{fig:ode}) reveals precise
-temporal coordination across all three modules. Starting from an initial
-condition of 100~$\mu$M Cr(VI) and $1 \times 10^7$~CFU/mL, the system
-executes the remediation protocol in three distinct phases.
-\textbf{Phase~1 (0--8~h):} sfGFP fluorescence rises rapidly as ChrB
-releases the \textit{P}\textsubscript{chrB} operator; the kill switch is
-held quiescent. \textbf{Phase~2 (8--44~h):} NemA reaches
-steady-state concentration; Cr(VI) decreases approximately linearly at
-$\sim$2.3~$\mu$M/h, falling below 100~nM by $t = 44$~h.
-\textbf{Phase~3 (44--96~h):} The kill-switch AND-gate fires; Holin
-crosses $\theta_{lysis} = 5$ at $t \approx 72$~h, and live-cell density
-drops by ${>}4$~orders of magnitude by 96~h.
-
 %% ----
 \subsection{NemA vs.\ NemA$^{*2+}$ Kinetic Comparison (Hypothesized)}
+
+The kinetic comparison between wild-type NemA and the hypothesized
+NemA$^{*2+}$ variant (Fig.~\ref{fig:kinetics}) shows the projected
+performance difference under the model's assumptions. Wild-type NemA
+reduces 100~$\mu$M Cr(VI) to below the US~EPA surface-water limit
+(0.1~mg/L $\approx$ 1.9~$\mu$M) in approximately 43~h. The hypothesized
+NemA$^{*2+}$ variant, with its three-fold lower $K_m$ and doubled
+$k_{cat}$ (in the operational units used by the circuit model), achieves
+the same endpoint in $\sim$11~h -- a four-fold reduction in
+\textit{predicted} treatment time. This 4-fold figure is \textbf{conditional
+on the caveat} in Section~2.3.3: the kinetic parameters are assumed, not
+derived from a structural modeling pipeline executed in this study.
 
 \begin{figure*}[!t]
   \centering
@@ -1047,18 +1057,6 @@ drops by ${>}4$~orders of magnitude by 96~h.
     \texttt{nemA\_mutant\_kinetics.py}.}
   \label{fig:kinetics}
 \end{figure*}
-
-The kinetic comparison between wild-type NemA and the hypothesized
-NemA$^{*2+}$ variant (Fig.~\ref{fig:kinetics}) shows the projected
-performance difference under the model's assumptions. Wild-type NemA
-reduces 100~$\mu$M Cr(VI) to below the US~EPA surface-water limit
-(0.1~mg/L $\approx$ 1.9~$\mu$M) in approximately 43~h. The hypothesized
-NemA$^{*2+}$ variant, with its three-fold lower $K_m$ and doubled
-$k_{cat}$ (in the operational units used by the circuit model), achieves
-the same endpoint in $\sim$11~h -- a four-fold reduction in
-\textit{predicted} treatment time. This 4-fold figure is \textbf{conditional
-on the caveat} in Section~2.3.3: the kinetic parameters are assumed, not
-derived from a structural modeling pipeline executed in this study.
 
 At environmentally relevant Cr(VI) concentrations (1--10~$\mu$M,
 characteristic of moderately polluted reaches of the Buriganga and
@@ -1173,6 +1171,14 @@ placement only.
 %% ----
 \subsection{Metabolic Feasibility: Circuit Burden Analysis}
 
+The ribosome-allocation metabolic model (Fig.~\ref{fig:burden})
+demonstrates that, under its assumptions, the proposed circuit is
+metabolically sustainable under all relevant environmental chromium
+concentrations. At $\phi_S = 4.5\%$, growth rate is reduced by
+approximately 33\% relative to the unstressed, unburdened baseline
+($0.5\;\text{h}^{-1} \to 0.34\;\text{h}^{-1}$ at 0~$\mu$M Cr(VI)).
+Growth remains positive under all four stress conditions tested
+
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=0.85\textwidth]%
@@ -1185,20 +1191,33 @@ placement only.
     \texttt{metabolic\_burden\_model.py}.}
   \label{fig:burden}
 \end{figure*}
-
-The ribosome-allocation metabolic model (Fig.~\ref{fig:burden})
-demonstrates that, under its assumptions, the proposed circuit is
-metabolically sustainable under all relevant environmental chromium
-concentrations. At $\phi_S = 4.5\%$, growth rate is reduced by
-approximately 33\% relative to the unstressed, unburdened baseline
-($0.5\;\text{h}^{-1} \to 0.34\;\text{h}^{-1}$ at 0~$\mu$M Cr(VI)).
-Growth remains positive under all four stress conditions tested
 (0, 20, 50, 100~$\mu$M Cr(VI)), indicating that the chassis continues
 to replicate and remediate.
 
 %% ----
 \subsection{Evolutionary Biosafety: Luria-Delbr\"{u}ck
             Containment Analysis}
+
+The Luria-Delbr\"{u}ck biosafety analysis (Fig.~\ref{fig:biosafety})
+provides the quantitative argument for the layered containment
+architecture. We model a 1{,}000-liter closed pond at carrying capacity
+($1 \times 10^9$~cells/L, total $1 \times 10^{12}$~cells), with
+4~generations/day and 30~days of operation ($1.2 \times 10^{14}$ total
+cell divisions). Per-division failure probabilities:
+\begin{itemize}
+  \item \textbf{Kill-switch loss-of-function:}
+        $P_{ks} = \mu_{bp} \times L_{target}
+                = 10^{-9} \times 500 = 5 \times 10^{-7}$ per division,
+        where $\mu_{bp} = 10^{-9}$~per bp per generation and
+        $L_{target} = 500$~bp.
+  \item \textbf{Auxotrophy reversion (HGT):}
+        $P_{rev} = 10^{-12}$~per division per locus (theoretical lower
+        bound for HGT-driven reconstitution).
+  \item \textbf{Combined per-division escape:}
+        $P_{\text{escape/gen}}
+         = 5 \times 10^{-7} \times 10^{-12} \times 10^{-12}
+         = 5 \times 10^{-31}$.
+\end{itemize}
 
 \begin{figure*}[!t]
   \centering
@@ -1230,27 +1249,6 @@ to replicate and remediate.
     by \texttt{biosafety\_mutation\_model.py}.}
   \label{fig:biosafety-long}
 \end{figure*}
-
-The Luria-Delbr\"{u}ck biosafety analysis (Fig.~\ref{fig:biosafety})
-provides the quantitative argument for the layered containment
-architecture. We model a 1{,}000-liter closed pond at carrying capacity
-($1 \times 10^9$~cells/L, total $1 \times 10^{12}$~cells), with
-4~generations/day and 30~days of operation ($1.2 \times 10^{14}$ total
-cell divisions). Per-division failure probabilities:
-\begin{itemize}
-  \item \textbf{Kill-switch loss-of-function:}
-        $P_{ks} = \mu_{bp} \times L_{target}
-                = 10^{-9} \times 500 = 5 \times 10^{-7}$ per division,
-        where $\mu_{bp} = 10^{-9}$~per bp per generation and
-        $L_{target} = 500$~bp.
-  \item \textbf{Auxotrophy reversion (HGT):}
-        $P_{rev} = 10^{-12}$~per division per locus (theoretical lower
-        bound for HGT-driven reconstitution).
-  \item \textbf{Combined per-division escape:}
-        $P_{\text{escape/gen}}
-         = 5 \times 10^{-7} \times 10^{-12} \times 10^{-12}
-         = 5 \times 10^{-31}$.
-\end{itemize}
 
 The 30-day integrated probability:
 \begin{equation}
@@ -1350,21 +1348,6 @@ by a global LHS analysis over 8~input parameters drawn log-uniformly
 from literature-bounded ranges ($N = 10{,}000$ samples, seed~= 42;
 see \S\ref{sec:pillar4c} for the method).
 
-\begin{figure*}[!t]
-  \centering
-  \includegraphics[width=0.95\textwidth]%
-    {simulations/results/biosafety_lhs.png}
-  \caption{Global LHS uncertainty quantification of the 30-day
-    $P_{\text{escape}}$ over 10{,}000 samples. (a)~Cumulative
-    distribution of $P_{\text{escape}}$ on a log-$x$ axis, with the
-    $10^{-15}$ threshold (orange dotted) and median (green dashed).
-    (b)~Histogram of $\log_{10}(P_{\text{escape}})$ over all samples.
-    (c)~Spearman rank correlation between each log-input and
-    $\log_{10}(P_{\text{escape}})$; red~= positive, blue~= negative.
-    Generated by \texttt{biosafety\_lhs.py}.}
-  \label{fig:lhs}
-\end{figure*}
-
 \textbf{Headline LHS findings ($N = 10{,}000$ samples):}
 \begin{itemize}
   \item \textbf{Median $P_{\text{escape}}$:} $1.71 \times 10^{-17}$
@@ -1382,6 +1365,21 @@ see \S\ref{sec:pillar4c} for the method).
         same for $\Delta dapA$ ($\rho = +0.55$), reactor volume~$V$
         ($\rho = +0.41$).
 \end{itemize}
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.95\textwidth]%
+    {simulations/results/biosafety_lhs.png}
+  \caption{Global LHS uncertainty quantification of the 30-day
+    $P_{\text{escape}}$ over 10{,}000 samples. (a)~Cumulative
+    distribution of $P_{\text{escape}}$ on a log-$x$ axis, with the
+    $10^{-15}$ threshold (orange dotted) and median (green dashed).
+    (b)~Histogram of $\log_{10}(P_{\text{escape}})$ over all samples.
+    (c)~Spearman rank correlation between each log-input and
+    $\log_{10}(P_{\text{escape}})$; red~= positive, blue~= negative.
+    Generated by \texttt{biosafety\_lhs.py}.}
+  \label{fig:lhs}
+\end{figure*}
 
 \textbf{Interpretation.} The global LHS analysis reveals that the
 headline $P_{\text{escape}} < 10^{-15}$ containment claim is
@@ -1411,8 +1409,6 @@ floor.  A future wet-lab Luria-Delbr\"{u}ck fluctuation test on the
   HGT transfer probability below $\sim 10^{-13}$ and the point-mutation rate
   $\mu_{bp}$ below $\sim 3 \times 10^{-10}$, the $P_{\text{escape}}$ would
   be driven robustly below $10^{-15}$, fully closing this biosafety vulnerability.
-
-\FloatBarrier
 
 %% ============================================================
 \section{Discussion}
@@ -1664,6 +1660,7 @@ each constant is tagged inline as \texttt{source:~[N]},
 \texttt{ASSUMED} (with justification), or \texttt{PREDICTED} (an output
 of one of our own models).
 
+\clearpage
 %% ============================================================
 %% BIBLIOGRAPHY
 %% ============================================================
