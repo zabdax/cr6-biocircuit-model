@@ -6,12 +6,13 @@
 
 <br>
 
-[![DOI](https://zenodo.org/badge/1286220707.svg)](https://doi.org/10.5281/zenodo.21168207)
+
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=for-the-badge)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11](https://img.shields.io/badge/python-3.11.x-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](.python-version)
 [![Status: Computational](https://img.shields.io/badge/status-computational%20only-orange?style=for-the-badge)](#important-caveat)
 [![Code: documented](https://img.shields.io/badge/code-documented-brightgreen?style=for-the-badge)](#code-and-data-availability)
 [![Repo: GitHub](https://img.shields.io/badge/repo-zabdax%2FSTRATA-181717?style=for-the-badge&logo=github)](https://github.com/zabdax/STRATA)
+[![DOI](https://zenodo.org/badge/1286220707.svg)](https://doi.org/10.5281/zenodo.21168207)
 
 </div>
 
