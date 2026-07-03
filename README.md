@@ -2,7 +2,7 @@
 
 # 🧬 STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy
 
-**A computational synthetic biology project modeling a tri-modular genetic circuit for hexavalent chromium [Cr(VI)] biosensing, enzymatic remediation, and autonomous self-termination in closed-system microcosms.**
+**A computational framework paper and its supplementary artefacts: an in-silico tri-modular genetic circuit for hexavalent chromium [Cr(VI)] biosensing, enzymatic remediation, and autonomous self-termination in closed-system microcosms.**
 
 <br>
 
@@ -16,25 +16,16 @@
 
 ---
 
-## 🆕 Latest updates (post-research)
+## 📄 About this repository
 
-> Research phase is complete. The repo now contains the **final** simulation,
-> biosafety, and structural-evaluation pipeline, and the manuscript is
-> submission-ready (`.tex` for journal track, `.md` for the web repo).
+This repository accompanies the manuscript:
 
-| Date | What landed | Where |
-|---|---|---|
-| **2026-07-03** | Pillar 4c — global UQ via LHS (N = 10,000) over 8 literature-bounded parameters, exact Poisson via `scipy.special.expm1` | [`simulations/biosafety_lhs.py`](simulations/biosafety_lhs.py) → `simulations/results/biosafety_lhs.{csv,png}` |
-| **2026-07-03** | Pillar 5 — NemA*²⁺ structural evaluation (PDB 8BPQ, six-stage pipeline) | [`simulations/structural_pipeline/`](simulations/structural_pipeline) |
-| **2026-07-03** | ORCID integration in the manuscript LaTeX | [`assets/ORCID_iD.pdf`](assets/ORCID_iD.pdf) |
-| **2026-07-01** | Sensitivity sweep (Pillar 4b) and full biosafety mutation model (Pillar 4) | [`simulations/biosafety_sensitivity.py`](simulations/biosafety_sensitivity.py) |
-| **2026-07-01** | Manuscript re-organised into Results / Discussion / Limitations structure | [`Journal_Manuscript_2026.tex`](Journal_Manuscript_2026.tex) |
+> **In Silico Design and Computational Validation of a Tri-Modular Genetic Circuit for Autonomous Detection and Bioremediation of Hexavalent Chromium in Closed-System Microcosms**
+> *Zubayer Hasan Shaad* — Govt. Tolaram College, Narayanganj, Bangladesh (2026).
 
-The full headline result — **$P_\text{escape}(30\,\text{d}) \approx 6 \times 10^{-17}$** in a
-1,000 L closed system, robust to 10× error in the per-bp mutation rate — is reported
-in [`simulations/parameters.py`](simulations/parameters.py) and validated in
-[`simulations/results/sensitivity_analysis.csv`](simulations/results/sensitivity_analysis.csv)
-and [`simulations/results/biosafety_lhs.csv`](simulations/results/biosafety_lhs.csv).
+The **manuscript is the primary scholarly record**; the contents of this repository are its **supplementary computational artefacts** — the simulation code, parameter provenance, and generated figures/CSVs that support every quantitative claim in the paper.
+
+The work is **entirely computational**. No experimental or wet-lab data were generated; all results are derived from the simulation models in `simulations/`.
 
 ---
 
@@ -48,7 +39,7 @@ and [`simulations/results/biosafety_lhs.csv`](simulations/results/biosafety_lhs.
 
 ---
 
-## 📌 Project at a glance
+## 📌 Paper at a glance
 
 | | |
 |---|---|
@@ -71,7 +62,7 @@ and [`simulations/results/biosafety_lhs.csv`](simulations/results/biosafety_lhs.
 
 ## 📖 Code and Data Availability
 
-All simulation code is contained in this repository. No experimental or wet-lab data were generated in this project — all results are derived from computational modeling. Parameter sources (literature-derived vs. assumed/estimated) are documented in [`simulations/parameters.py`](simulations/parameters.py), which is the single source of truth for every constant in the project.
+All simulation code supporting the manuscript is contained in this repository. No experimental or wet-lab data were generated — all results are derived from computational modeling. Parameter sources (literature-derived vs. assumed/estimated) are documented in [`simulations/parameters.py`](simulations/parameters.py), which is the single source of truth for every constant used in the paper.
 
 This repository is archived at **Zenodo** *(DOI badge will be added after first Zenodo release)*.
 
@@ -92,36 +83,32 @@ All model constants — literature-sourced, assumed, or predicted — are centra
 
 ---
 
-## 🏗️ Project Structure
+## 🗂️ Repository structure
+
+The repository is organised around the manuscript. The `simulations/` tree mirrors the five computational pillars of the paper; everything else is supporting infrastructure (LaTeX source, citation metadata, validator scripts, dependency pin).
 
 ```
-project/
+.
 ├── .python-version               # Pinned interpreter (3.11.x)
-├── .gitignore                    # Keeps .venv/, __pycache__/, generated *.png, etc. out of git
+├── .gitignore                    # Excludes .venv/, __pycache__/, generated artefacts, etc.
 ├── LICENSE                       # CC BY 4.0
 ├── README.md                     # This file
-├── requirements.txt              # All project dependencies (pinned versions)
-├── Journal_Manuscript_2026.tex   # LaTeX source for Overleaf/journal submission
-├── Journal_Manuscript_2026.pdf   # Rendered PDF (gitignored; rebuilt by generate_pdf.py)
-├── assets/
-│   ├── strata_story.svg          # 8-scene 18-s animation embedded at the top of this README
-│   ├── orcid_logo.png            # ORCID iD logo for the manuscript byline
-│   └── ORCID_iD.pdf              # ORCID iD symbol (used by the .tex via \includegraphics)
+├── requirements.txt              # Pinned Python dependencies
+├── CITATION.cff                  # Machine-readable citation metadata (CFF 1.2.0)
+├── Journal_Manuscript_2026.tex   # ⭐ LaTeX source of the manuscript (primary scholarly record)
 ├── scripts/
-│   └── scripts_check_tex.py      # Brace/environment-balance validator for the .tex file
-├── vina_binary/
-│   └── vina.exe                  # AutoDock Vina 1.2.5 binary (bundled; Cr not a built-in type)
+│   └── scripts_check_tex.py      # Brace / environment-balance validator for the .tex
 └── simulations/
     ├── parameters.py             # ⭐ Centralized, cited parameter set — read this first
-    ├── circuit_ode_model.py      # Pillar 1: ODE systems biology simulation (96h)
-    ├── nemA_mutant_kinetics.py   # Pillar 2: Wild-type vs. hypothesized NemA*2+ kinetics
+    ├── circuit_ode_model.py      # Pillar 1: ODE systems biology simulation (96 h)
+    ├── nemA_mutant_kinetics.py   # Pillar 2: WT vs. hypothesized NemA*²⁺ Michaelis–Menten kinetics
     ├── metabolic_burden_model.py # Pillar 3: Ribosome allocation / GSMM (Scott et al. 2010)
-    ├── biosafety_mutation_model.py # Pillar 4: Luria-Delbrück mutation modeling
+    ├── biosafety_mutation_model.py # Pillar 4: Luria–Delbrück evolutionary containment model
     ├── biosafety_sensitivity.py  # Pillar 4b: Sensitivity sweep over mutation rate and volume
-    ├── biosafety_lhs.py          # Pillar 4c: LHS global UQ (N=10,000; 8 input parameters)
+    ├── biosafety_lhs.py          # Pillar 4c: LHS global UQ (N = 10,000; 8 input parameters)
     ├── generate_pdf.py           # Renders the submission-formatted PDF (reportlab + fpdf2)
     ├── generate_circuit_diagrams.py # Renders plasmid module diagrams
-    ├── structural_pipeline/      # Pillar 5: NemA*2+ structural evaluation (PDB 8BPQ)
+    ├── structural_pipeline/      # Pillar 5: NemA*²⁺ structural evaluation (PDB 8BPQ)
     │   ├── __init__.py
     │   ├── utils.py              # Shared heavy-atom / contact-cutoff helpers
     │   ├── fetch_nemA_structure.py  # Downloads 8BPQ.cif and 8BPQ_chainA.pdb
@@ -129,10 +116,10 @@ project/
     │   ├── analyze_active_site.py  # FMN pocket classification (1st/2nd shell)
     │   ├── prepare_docking.py    # WT + ILE328ALA .pdbqt, chromate .pdbqt
     │   ├── scan_contact_disruption.py # Contact-disruption ranker (Kannan 1999)
-    │   ├── geometric_placement.py    # scipy.optimize placement of CrO4(2-)
+    │   ├── geometric_placement.py    # scipy.optimize placement of CrO₄²⁻
     │   └── data/                 # 8BPQ.cif, 8BPQ_chainA.pdb(.pdbqt),
     │                             # 8BPQ_chainA_ILE328ALA.pdb(.pdbqt), chromate.pdb(.pdbqt)
-    └── results/                  # Generated figures (PNG, 300 DPI) and CSV/JSON outputs
+    └── results/                  # Generated figures (PNG) and CSV/JSON supporting the paper
         ├── integrated_96h_simulation.png    # Pillar 1
         ├── nemA_mutant_kinetics.png         # Pillar 2
         ├── metabolic_burden_model.png       # Pillar 3
@@ -150,13 +137,13 @@ project/
         └── plasmid_module{1,2,3}.png        # Plasmid module diagrams
 ```
 
-> `generate_pdf.py` renders the submission-formatted PDF via `reportlab` and `fpdf2`; it is the only script in the `simulations/` folder that does not produce a model figure.
+> Local-only paths (not in the tree above, gitignored): `assets/` (ORCID logo, figure SVGs) and `vina_binary/` (bundled AutoDock Vina 1.2.5 executable, used by Pillar 5 prep steps). The submitted manuscript and its PDF are both reproducible from the tracked source: `Journal_Manuscript_2026.tex` → `simulations/generate_pdf.py`.
 
 > [`scripts/scripts_check_tex.py`](scripts/scripts_check_tex.py) performs a structural sanity check on `Journal_Manuscript_2026.tex` (brace balance + LaTeX `\\begin`/`\\end` environment balance + citation ↔ bibliography cross-check) without invoking a full LaTeX toolchain. It resolves the manuscript path relative to itself, so it runs from any working directory.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Reproducing the results
 
 ```powershell
 # Activate the virtual environment (Windows)
@@ -165,7 +152,7 @@ project/
 # (First time only) Install all dependencies
 pip install -r requirements.txt
 
-# Run all simulations to regenerate figures
+# Re-run every computational pillar to regenerate the figures / tables
 python simulations/circuit_ode_model.py
 python simulations/nemA_mutant_kinetics.py
 python simulations/metabolic_burden_model.py
@@ -173,10 +160,10 @@ python simulations/biosafety_mutation_model.py
 python simulations/biosafety_sensitivity.py
 python simulations/biosafety_lhs.py            # Pillar 4c — 10,000 LHS samples
 
-# Render plasmid module diagrams
+# Render plasmid module diagrams (used in the manuscript figures)
 python simulations/generate_circuit_diagrams.py
 
-# Generate the final PDF
+# Render the submission-formatted PDF of the manuscript
 python simulations/generate_pdf.py
 
 # (Optional) Sanity-check the manuscript LaTeX file
@@ -187,7 +174,7 @@ python scripts/scripts_check_tex.py
 
 ---
 
-## 🔬 Computational Pillars
+## 🔬 Computational pillars
 
 | Pillar | Script | Method | Headline output |
 |---|---|---|---|
@@ -201,7 +188,7 @@ python scripts/scripts_check_tex.py
 
 ---
 
-## 🧬 NemA*2+ Structural Evaluation
+## 🧬 NemA*2+ Structural Evaluation (Pillar 5)
 
 A separate structural pipeline was run to evaluate the feasibility of the hypothesized NemA\*²⁺ variant at the protein level, independent of the ODE / biosafety work in Pillars 1–4. The full source lives in `simulations/structural_pipeline/` and runs as a six-stage pipeline:
 
@@ -268,34 +255,17 @@ Python version is pinned in [`.python-version`](.python-version) (3.11.x). The p
 
 **Zubayer Hasan Shaad** — Govt. Tolaram College, Narayanganj, Bangladesh
 
-📫 [mdzubayerhasanshaad99@gmail.com](mailto:mdzubayerhasanshaad99@gmail.com) · 🐙 [@zabdax](https://github.com/zabdax)
+📫 [mdzubayerhasanshaad99@gmail.com](mailto:mdzubayerhasanshaad99@gmail.com) · 🐙 [@zabdax](https://github.com/zabdax) · 🆔 [ORCID 0009-0002-2322-8553](https://orcid.org/0009-0002-2322-8553)
 
 ---
 
 ## 📚 How to cite
 
-If STRATA (code, methods, or results) contributes to your work, please cite
-both the **software repository** and the **accompanying manuscript** — the
-latter is the primary scholarly record.
+The **manuscript is the primary scholarly record**; please cite it (not just the repository) when referencing STRATA's design, methods, or results. The repository is the artefact bundle that supports the manuscript.
 
-The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff);
-GitHub renders a **"Cite this repository"** button from it automatically.
-The BibTeX entries below are kept in sync by hand for environments that
-don't consume CFF (Overleaf, journal submission portals, etc.).
+The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff) (CFF 1.2.0); GitHub renders a **"Cite this repository"** button from it automatically. The BibTeX entries below are kept in sync by hand for environments that don't consume CFF (Overleaf, journal submission portals, etc.).
 
 ```bibtex
-@software{shaad2026strata_code,
-  author    = {Shaad, Zubayer Hasan},
-  title     = {{STRATA}---Self-Terminating Remediation Architecture
-               with Tri-modal Auxotrophy},
-  version   = {1.0.0},
-  date      = {2026-07-03},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.XXXXXXX},  % (DOI assigned on first Zenodo release)
-  url       = {https://github.com/zabdax/cr6-biocircuit-model},
-  orcid     = {0009-0002-2322-8553}
-}
-
 @article{shaad2026strata_manuscript,
   author  = {Shaad, Zubayer Hasan},
   title   = {In Silico Design and Computational Validation of a
@@ -304,7 +274,20 @@ don't consume CFF (Overleaf, journal submission portals, etc.).
              Closed-System Microcosms},
   year    = {2026},
   journal = {(under review)},
-  url     = {https://github.com/zabdax/cr6-biocircuit-model}
+  url     = {https://github.com/zabdax/cr6-biocircuit-model},
+  orcid   = {0009-0002-2322-8553}
+}
+
+@software{shaad2026strata_code,
+  author    = {Shaad, Zubayer Hasan},
+  title     = {{STRATA}---Self-Terminating Remediation Architecture
+               with Tri-modal Auxotrophy (supplementary code and data)},
+  version   = {1.0.0},
+  date      = {2026-07-03},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.XXXXXXX},  % (DOI assigned on first Zenodo release)
+  url       = {https://github.com/zabdax/cr6-biocircuit-model},
+  orcid     = {0009-0002-2322-8553}
 }
 ```
 
@@ -312,14 +295,14 @@ don't consume CFF (Overleaf, journal submission portals, etc.).
 
 ## 📄 License
 
-This work is licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+The manuscript, code, and supplementary artefacts in this repository are licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-You are free to share (copy and redistribute in any medium or format) and adapt (remix, transform, and build upon) the material for any purpose, even commercially, provided that appropriate credit is given. See the [LICENSE](LICENSE) file for the full license text.
+You are free to share (copy and redistribute in any medium or format) and adapt (remix, transform, and build upon) the material for any purpose, even commercially, provided that appropriate credit is given. See the [`LICENSE`](LICENSE) file for the full license text.
 
 ---
 
 <div align="center">
 
-<sub>STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy · Computational synthetic biology for resource-constrained bioremediation</sub>
+<sub>STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy · A computational framework paper in synthetic biology for resource-constrained bioremediation</sub>
 
 </div>

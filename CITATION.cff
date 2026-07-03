@@ -1,15 +1,21 @@
 # CITATION.cff — Citation metadata for the STRATA repository.
 # GitHub uses this file to render a "Cite this repository" button on the
-# repo page; Zotero, Zenodo, and the GitHub-CLI `repo citation` command
+# repo page; Zotero, Zenodo, and the GitHub CLI `repo citation` command
 # all consume it as well. Schema: https://citation-file-format.github.io/
 # License SPDX: https://spdx.org/licenses/
+#
+# IMPORTANT: this file describes the *repository* (supplementary code and
+# data bundle). The primary scholarly record is the manuscript referenced
+# under `preferred-citation` below — please cite the manuscript (not just
+# the repository) when referencing STRATA's design, methods, or results.
 
 cff-version: 1.2.0
 message: >-
   If you use STRATA (code, methodology, or results) in your work, please
-  cite the manuscript (preferred-citation below) and acknowledge this
-  repository.
-title: "STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy"
+  cite the manuscript (the primary scholarly record, given in
+  preferred-citation below) and acknowledge this repository as the
+  supplementary code and data bundle.
+title: "STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy (supplementary code and data)"
 type: software
 version: 1.0.0
 date-released: 2026-07-03
@@ -69,9 +75,11 @@ abstract: >-
   system. No wet-lab data were generated.
 
 # The primary scholarly output is the manuscript below. Please cite the
-# manuscript when referencing STRATA's design, methods, or results in
-# academic work. The Zenodo DOI will be added after the first release
-# (the README carries a placeholder for the same reason).
+# manuscript (not just this repository) when referencing STRATA's design,
+# methods, or results in academic work. The Zenodo DOI and journal name
+# will be added after submission / first Zenodo release (the README and
+# the BibTeX in the manuscript carry matching placeholders for the same
+# reason).
 preferred-citation:
   type: article
   title: >-

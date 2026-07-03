@@ -43,6 +43,12 @@ desktop.ini
 prev/
 Diagrams/
 
+# Project-specific: large/binary assets kept locally, not part of the submission
+# - assets/  : ORCID logos and the strata_story.svg (regenerable; not needed for review)
+# - vina_binary/ : bundled AutoDock Vina executable (regenerable via fetch_nemA_structure / install)
+assets/
+vina_binary/
+
 # Local personal toolchain files (not part of the SJWP project)
 .agents/
 lint_tex.py
