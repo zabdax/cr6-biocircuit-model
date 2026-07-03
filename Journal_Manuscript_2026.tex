@@ -5,7 +5,11 @@
 %%  Author: Zubayer Hasan Shaad  |  July 2026
 %% ============================================================
 
-\documentclass[10pt,twocolumn,letterpaper]{article}
+\documentclass[10pt,twocolumn,letterpaper,
+              colorlinks=true,
+              linkcolor=blue!70!black,
+              citecolor=blue!70!black,
+              urlcolor=blue!70!black]{article}
 
 %% ---- Encoding & Fonts ----------------------------------------
 \usepackage[utf8]{inputenc}
@@ -37,16 +41,26 @@
 
 %% ---- Authors & Affiliations ----------------------------------
 \usepackage{authblk}
+\usepackage{orcidlink}
 
 %% ---- References & Hyperlinks ---------------------------------
 \usepackage{cite}
+
 \usepackage[dvipsnames]{xcolor}
+%% ---- Hyperref MUST be the last package loaded ----------------
+%% Disable the PDF link-border rectangle around clickable images
+%% (colorlinks=true already handles text links; this handles image links
+%%  such as the ORCID iD logo in the author block).
 \usepackage[colorlinks=true,
             linkcolor=blue!70!black,
             citecolor=blue!70!black,
             urlcolor=blue!70!black]{hyperref}
-\usepackage{url}
 
+
+%% Disable the PDF link-border rectangle around clickable images
+%% (colorlinks=true already handles text links; this handles image links
+%%  such as the ORCID iD logo in the author block).
+\hypersetup{pdfborder={0 0 0}}
 %% ---- Widow / Orphan Penalties --------------------------------
 \widowpenalty=10000
 \clubpenalty=10000
@@ -79,11 +93,16 @@
   and Bioremediation of Hexavalent Chromium in
   Closed-System Microcosms}
 
+
 \author{Zubayer Hasan Shaad%
   \thanks{Corresponding author. Email:
-    \texttt{mdzubayerhasanshaad99@gmail.com}}}
-\affil{Govt.\ Tolaram College, Narayanganj, Bangladesh}
+    \texttt{mdzubayerhasanshaad99@gmail.com}}%
+  \textsuperscript{\href{https://orcid.org/0009-0002-2322-8553}{%
+    \raisebox{-0.15em}{\includegraphics[height=0.8em]{orcid_logo.png}}%
+\affil{Govt.\ Tolaram College}
 \date{July 2026}
+  }}%
+}
 
 %% ============================================================
 \begin{document}
@@ -1237,12 +1256,13 @@ cell divisions). Per-division failure probabilities:
 
 The 30-day integrated probability:
 \begin{equation}
-  P_{\text{escape}}^{30d}
-  = 1 - e^{-N_{total} \cdot P_{\text{escape/gen}}}
-  = 1 - e^{-1.2 \times 10^{14} \times 5 \times 10^{-31}}
-  = 1 - e^{-6 \times 10^{-17}}
-  \approx 6 \times 10^{-17}
-  \label{eq:pescape30d}
+\begin{aligned}
+P_{\text{escape}}^{30d}
+&= 1 - e^{-N_{total} \cdot P_{\text{escape/gen}}} \\
+&= 1 - e^{-6 \times 10^{-17}} \\
+&\approx 6 \times 10^{-17}
+\end{aligned}
+\label{eq:pescape30d}
 \end{equation}
 
 \textbf{Numerical implementation note.} For arguments this small,
@@ -1334,7 +1354,7 @@ see \S\ref{sec:pillar4c} for the method).
 
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=0.85\textwidth]%
+  \includegraphics[width=0.95\textwidth]%
     {simulations/results/biosafety_lhs.png}
   \caption{Global LHS uncertainty quantification of the 30-day
     $P_{\text{escape}}$ over 10{,}000 samples. (a)~Cumulative
