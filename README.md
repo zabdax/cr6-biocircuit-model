@@ -253,9 +253,9 @@ Python version is pinned in [`.python-version`](.python-version) (3.11.x). The p
 
 ## Author
 
-**Zubayer Hasan Shaad** — Govt. Tolaram College, Narayanganj, Bangladesh
+**Zubayer Hasan Shaad** 
 
-Email: [mdzubayerhasanshaad99@gmail.com](mailto:mdzubayerhasanshaad99@gmail.com) · GitHub: [@zabdax](https://github.com/zabdax) · ORCID: [0009-0002-2322-8553](https://orcid.org/0009-0002-2322-8553)
+· GitHub: [@zabdax](https://github.com/zabdax) · ORCID: [0009-0002-2322-8553](https://orcid.org/0009-0002-2322-8553)
 
 ---
 
@@ -274,7 +274,7 @@ The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff) (CFF 1.
              Closed-System Microcosms},
   year    = {2026},
   journal = {(under review)},
-  url     = {https://github.com/zabdax/cr6-biocircuit-model},
+  url     = {https://github.com/zabdax/STRATA},
   orcid   = {0009-0002-2322-8553}
 }
 
