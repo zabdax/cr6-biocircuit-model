@@ -28,7 +28,7 @@
 | **2026-07-03** | Pillar 5 — NemA*²⁺ structural evaluation (PDB 8BPQ, six-stage pipeline) | [`simulations/structural_pipeline/`](simulations/structural_pipeline) |
 | **2026-07-03** | ORCID integration in the manuscript LaTeX | [`assets/ORCID_iD.pdf`](assets/ORCID_iD.pdf) |
 | **2026-07-01** | Sensitivity sweep (Pillar 4b) and full biosafety mutation model (Pillar 4) | [`simulations/biosafety_sensitivity.py`](simulations/biosafety_sensitivity.py) |
-| **2026-07-01** | Manuscript re-organised into Results / Discussion / Limitations structure | [`Journal_Manuscript_2026.md`](Journal_Manuscript_2026.md) / [`.tex`](Journal_Manuscript_2026.tex) |
+| **2026-07-01** | Manuscript re-organised into Results / Discussion / Limitations structure | [`Journal_Manuscript_2026.tex`](Journal_Manuscript_2026.tex) |
 
 The full headline result — **$P_\text{escape}(30\,\text{d}) \approx 6 \times 10^{-17}$** in a
 1,000 L closed system, robust to 10× error in the per-bp mutation rate — is reported
@@ -101,7 +101,6 @@ project/
 ├── LICENSE                       # CC BY 4.0
 ├── README.md                     # This file
 ├── requirements.txt              # All project dependencies (pinned versions)
-├── Journal_Manuscript_2026.md    # Full research manuscript (Markdown source)
 ├── Journal_Manuscript_2026.tex   # LaTeX source for Overleaf/journal submission
 ├── Journal_Manuscript_2026.pdf   # Rendered PDF (gitignored; rebuilt by generate_pdf.py)
 ├── assets/
@@ -120,7 +119,7 @@ project/
     ├── biosafety_mutation_model.py # Pillar 4: Luria-Delbrück mutation modeling
     ├── biosafety_sensitivity.py  # Pillar 4b: Sensitivity sweep over mutation rate and volume
     ├── biosafety_lhs.py          # Pillar 4c: LHS global UQ (N=10,000; 8 input parameters)
-    ├── generate_pdf.py           # Renders Journal_Manuscript_2026.md to PDF
+    ├── generate_pdf.py           # Renders the submission-formatted PDF (reportlab + fpdf2)
     ├── generate_circuit_diagrams.py # Renders plasmid module diagrams
     ├── structural_pipeline/      # Pillar 5: NemA*2+ structural evaluation (PDB 8BPQ)
     │   ├── __init__.py
@@ -151,7 +150,7 @@ project/
         └── plasmid_module{1,2,3}.png        # Plasmid module diagrams
 ```
 
-> `generate_pdf.py` renders `Journal_Manuscript_2026.md` to submission-formatted PDF via `reportlab` and `fpdf2`; it is the only script in the `simulations/` folder that does not produce a model figure.
+> `generate_pdf.py` renders the submission-formatted PDF via `reportlab` and `fpdf2`; it is the only script in the `simulations/` folder that does not produce a model figure.
 
 > [`scripts/scripts_check_tex.py`](scripts/scripts_check_tex.py) performs a structural sanity check on `Journal_Manuscript_2026.tex` (brace balance + LaTeX `\\begin`/`\\end` environment balance + citation ↔ bibliography cross-check) without invoking a full LaTeX toolchain. It resolves the manuscript path relative to itself, so it runs from any working directory.
 
@@ -270,6 +269,44 @@ Python version is pinned in [`.python-version`](.python-version) (3.11.x). The p
 **Zubayer Hasan Shaad** — Govt. Tolaram College, Narayanganj, Bangladesh
 
 📫 [mdzubayerhasanshaad99@gmail.com](mailto:mdzubayerhasanshaad99@gmail.com) · 🐙 [@zabdax](https://github.com/zabdax)
+
+---
+
+## 📚 How to cite
+
+If STRATA (code, methods, or results) contributes to your work, please cite
+both the **software repository** and the **accompanying manuscript** — the
+latter is the primary scholarly record.
+
+The canonical, machine-readable source is [`CITATION.cff`](CITATION.cff);
+GitHub renders a **"Cite this repository"** button from it automatically.
+The BibTeX entries below are kept in sync by hand for environments that
+don't consume CFF (Overleaf, journal submission portals, etc.).
+
+```bibtex
+@software{shaad2026strata_code,
+  author    = {Shaad, Zubayer Hasan},
+  title     = {{STRATA}---Self-Terminating Remediation Architecture
+               with Tri-modal Auxotrophy},
+  version   = {1.0.0},
+  date      = {2026-07-03},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.XXXXXXX},  % (DOI assigned on first Zenodo release)
+  url       = {https://github.com/zabdax/cr6-biocircuit-model},
+  orcid     = {0009-0002-2322-8553}
+}
+
+@article{shaad2026strata_manuscript,
+  author  = {Shaad, Zubayer Hasan},
+  title   = {In Silico Design and Computational Validation of a
+             Tri-Modular Genetic Circuit for Autonomous Detection
+             and Bioremediation of Hexavalent Chromium in
+             Closed-System Microcosms},
+  year    = {2026},
+  journal = {(under review)},
+  url     = {https://github.com/zabdax/cr6-biocircuit-model}
+}
+```
 
 ---
 

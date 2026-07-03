@@ -1,0 +1,88 @@
+# CITATION.cff — Citation metadata for the STRATA repository.
+# GitHub uses this file to render a "Cite this repository" button on the
+# repo page; Zotero, Zenodo, and the GitHub-CLI `repo citation` command
+# all consume it as well. Schema: https://citation-file-format.github.io/
+# License SPDX: https://spdx.org/licenses/
+
+cff-version: 1.2.0
+message: >-
+  If you use STRATA (code, methodology, or results) in your work, please
+  cite the manuscript (preferred-citation below) and acknowledge this
+  repository.
+title: "STRATA — Self-Terminating Remediation Architecture with Tri-modal Auxotrophy"
+type: software
+version: 1.0.0
+date-released: 2026-07-03
+
+# Authoritative scholarly keywords. The first five are the project
+# backbone; the rest are the engineering/computational methods that
+# show up in the manuscript.
+keywords:
+  - synthetic-biology
+  - bioremediation
+  - hexavalent-chromium
+  - Cr(VI)
+  - biosensor
+  - chrB
+  - nemA
+  - holin-endolysin
+  - kill-switch
+  - auxotrophy
+  - biosafety
+  - luria-delbruck
+  - latin-hypercube-sampling
+  - structural-evaluation
+  - computational-biology
+  - bangladesh
+  - tannery-effluent
+
+authors:
+  - family-names: Shaad
+    given-names: Zubayer Hasan
+    orcid: https://orcid.org/0009-0002-2322-8553
+    affiliation: Govt. Tolaram College, Narayanganj, Bangladesh
+    email: mdzubayerhasanshaad99@gmail.com
+    website: https://github.com/zabdax
+
+repository-code: https://github.com/zabdax/cr6-biocircuit-model
+url: https://github.com/zabdax/cr6-biocircuit-model
+
+# Matches the LICENSE file in the repo root (CC BY 4.0, not MIT).
+license: CC-BY-4.0
+
+abstract: >-
+  STRATA is a fully computational design and validation of a tri-modular
+  synthetic genetic circuit expressed in a double-auxotrophic Escherichia
+  coli chassis for the autonomous detection, enzymatic reduction, and
+  post-treatment self-termination of hexavalent chromium [Cr(VI)] in
+  closed-system microcosms. The platform integrates (1) a ChrB-sfGFP
+  de-repression biosensor on pUC19, (2) a NemA chromate reductase on
+  pET-28a, and (3) a dual-trigger holin-endolysin kill switch on
+  pACYC184, with containment enforced by ΔthyA ΔdapA double auxotrophy.
+  Validation spans six computational pillars: ODE systems biology (96 h),
+  comparative Michaelis-Menten kinetics for a hypothesized NemA*²⁺
+  variant, ribosome-allocation metabolic burden analysis (Scott et al.
+  2010 framework), Luria-Delbrück evolutionary biosafety modeling with a
+  global LHS uncertainty quantification (N = 10,000), and a six-stage
+  structural evaluation of the NemA FMN pocket (PDB 8BPQ). The headline
+  containment result is P_escape(30 d) ≈ 6 × 10⁻¹⁷ in a 1,000 L closed
+  system. No wet-lab data were generated.
+
+# The primary scholarly output is the manuscript below. Please cite the
+# manuscript when referencing STRATA's design, methods, or results in
+# academic work. The Zenodo DOI will be added after the first release
+# (the README carries a placeholder for the same reason).
+preferred-citation:
+  type: article
+  title: >-
+    In Silico Design and Computational Validation of a Tri-Modular
+    Genetic Circuit for Autonomous Detection and Bioremediation of
+    Hexavalent Chromium in Closed-System Microcosms
+  authors:
+    - family-names: Shaad
+      given-names: Zubayer Hasan
+      orcid: https://orcid.org/0009-0002-2322-8553
+  year: 2026
+  # journal: (to be assigned on submission)
+  # url: https://github.com/zabdax/cr6-biocircuit-model
+  # doi: 10.5281/zenodo.XXXXXXX   (Zenodo DOI, to be assigned on first release)
