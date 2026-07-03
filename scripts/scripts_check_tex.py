@@ -1,8 +1,16 @@
-"""Quick structural validation of the manuscript tex file."""
+"""Quick structural validation of the manuscript tex file.
+
+Resolves the manuscript path relative to this script so the check works
+from any working directory (and on any platform).
+"""
+import os
 import re
 from collections import Counter
 
-with open(r"F:\SJWP\Journal_Manuscript_2026.tex", encoding='utf-8') as f:
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TEX_FILE = os.path.join(REPO_ROOT, "Journal_Manuscript_2026.tex")
+
+with open(TEX_FILE, encoding='utf-8') as f:
     text = f.read()
 
 # Brace balance

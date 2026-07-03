@@ -16,6 +16,28 @@
 
 ---
 
+## 🆕 Latest updates (post-research)
+
+> Research phase is complete. The repo now contains the **final** simulation,
+> biosafety, and structural-evaluation pipeline, and the manuscript is
+> submission-ready (`.tex` for journal track, `.md` for the web repo).
+
+| Date | What landed | Where |
+|---|---|---|
+| **2026-07-03** | Pillar 4c — global UQ via LHS (N = 10,000) over 8 literature-bounded parameters, exact Poisson via `scipy.special.expm1` | [`simulations/biosafety_lhs.py`](simulations/biosafety_lhs.py) → `simulations/results/biosafety_lhs.{csv,png}` |
+| **2026-07-03** | Pillar 5 — NemA*²⁺ structural evaluation (PDB 8BPQ, six-stage pipeline) | [`simulations/structural_pipeline/`](simulations/structural_pipeline) |
+| **2026-07-03** | ORCID integration in the manuscript LaTeX | [`assets/ORCID_iD.pdf`](assets/ORCID_iD.pdf) |
+| **2026-07-01** | Sensitivity sweep (Pillar 4b) and full biosafety mutation model (Pillar 4) | [`simulations/biosafety_sensitivity.py`](simulations/biosafety_sensitivity.py) |
+| **2026-07-01** | Manuscript re-organised into Results / Discussion / Limitations structure | [`Journal_Manuscript_2026.md`](Journal_Manuscript_2026.md) / [`.tex`](Journal_Manuscript_2026.tex) |
+
+The full headline result — **$P_\text{escape}(30\,\text{d}) \approx 6 \times 10^{-17}$** in a
+1,000 L closed system, robust to 10× error in the per-bp mutation rate — is reported
+in [`simulations/parameters.py`](simulations/parameters.py) and validated in
+[`simulations/results/sensitivity_analysis.csv`](simulations/results/sensitivity_analysis.csv)
+and [`simulations/results/biosafety_lhs.csv`](simulations/results/biosafety_lhs.csv).
+
+---
+
 ## 🎬 How STRATA works:
 
 > A sleeping engineered *E. coli* GMO in a biotech lab detects incoming Cr(VI) ions, awakens and biosenses them, reduces Cr(VI) to benign Cr(III) via NemA enzyme, then triggers the holin–endolysin kill switch and dissolves. A new GMO hatches from the incubation chamber to resume monitoring.
@@ -81,7 +103,13 @@ project/
 ├── requirements.txt              # All project dependencies (pinned versions)
 ├── Journal_Manuscript_2026.md    # Full research manuscript (Markdown source)
 ├── Journal_Manuscript_2026.tex   # LaTeX source for Overleaf/journal submission
-├── scripts_check_tex.py          # Brace/environment-balance validator for the .tex file
+├── Journal_Manuscript_2026.pdf   # Rendered PDF (gitignored; rebuilt by generate_pdf.py)
+├── assets/
+│   ├── strata_story.svg          # 8-scene 18-s animation embedded at the top of this README
+│   ├── orcid_logo.png            # ORCID iD logo for the manuscript byline
+│   └── ORCID_iD.pdf              # ORCID iD symbol (used by the .tex via \includegraphics)
+├── scripts/
+│   └── scripts_check_tex.py      # Brace/environment-balance validator for the .tex file
 ├── vina_binary/
 │   └── vina.exe                  # AutoDock Vina 1.2.5 binary (bundled; Cr not a built-in type)
 └── simulations/
@@ -98,34 +126,34 @@ project/
     │   ├── __init__.py
     │   ├── utils.py              # Shared heavy-atom / contact-cutoff helpers
     │   ├── fetch_nemA_structure.py  # Downloads 8BPQ.cif and 8BPQ_chainA.pdb
+    │   ├── literature_check.py   # Pre-docking PubMed decision gate
     │   ├── analyze_active_site.py  # FMN pocket classification (1st/2nd shell)
     │   ├── prepare_docking.py    # WT + ILE328ALA .pdbqt, chromate .pdbqt
     │   ├── scan_contact_disruption.py # Contact-disruption ranker (Kannan 1999)
     │   ├── geometric_placement.py    # scipy.optimize placement of CrO4(2-)
-    │   ├── literature_check.py   # Pre-docking PubMed decision gate
-    │   └── data/                 # 8BPQ.cif, 8BPQ_chainA.pdb(.pdbqt), chromate.pdb(.pdbqt)
-    └── results/                  # Generated figures (PNG, 300 DPI) and CSV outputs
-        ├── integrated_96h_simulation.png
-        ├── nemA_mutant_kinetics.png
-        ├── metabolic_burden_model.png
-        ├── biosafety_mutation_model.png         # 365-day long-run view
-        ├── biosafety_mutation_30day.png         # 30-day deployment-window view
-        ├── sensitivity_analysis.png             # Pillar 4b sweep results
-        ├── sensitivity_analysis.csv             # Underlying numbers
-        ├── biosafety_lhs.csv                    # Pillar 4c: 10,000 LHS samples
-        ├── nema_active_site.json                # Pillar 5: FMN pocket composition
-        ├── nema_contact_disruption.csv          # Pillar 5: second-shell mutation ranking
-        ├── nema_docking_results.csv             # Pillar 5: geometric observables (main)
-        ├── nema_docking_results_supplementary.csv # Pillar 5: Vina scores (supplementary)
-        ├── structure_provenance.json            # Pillar 5: structure origin & hashes
-        ├── literature_check.json                # Pillar 5: PubMed decision-gate result
-        ├── literature_check.md                  # Pillar 5: human-readable decision log
-        └── plasmid_module{1,2,3}.png
+    │   └── data/                 # 8BPQ.cif, 8BPQ_chainA.pdb(.pdbqt),
+    │                             # 8BPQ_chainA_ILE328ALA.pdb(.pdbqt), chromate.pdb(.pdbqt)
+    └── results/                  # Generated figures (PNG, 300 DPI) and CSV/JSON outputs
+        ├── integrated_96h_simulation.png    # Pillar 1
+        ├── nemA_mutant_kinetics.png         # Pillar 2
+        ├── metabolic_burden_model.png       # Pillar 3
+        ├── biosafety_mutation_model.png     # Pillar 4 — 365-day long-run view
+        ├── biosafety_mutation_30day.png     # Pillar 4 — 30-day deployment-window view
+        ├── sensitivity_analysis.{png,csv}   # Pillar 4b sweep (figure + numbers)
+        ├── biosafety_lhs.{csv,png}          # Pillar 4c — 10,000 LHS samples + 3-panel figure
+        ├── nema_active_site.{json,png}      # Pillar 5 — FMN pocket composition + figure
+        ├── nema_contact_disruption.{csv,png}# Pillar 5 — second-shell mutation ranking
+        ├── nema_docking_overlay.png         # Pillar 5 — visual overlay of the placement
+        ├── nema_docking_results.csv         # Pillar 5 — geometric observables (main text)
+        ├── nema_docking_results_supplementary.csv # Pillar 5 — Vina note (Cr not in Vina)
+        ├── structure_provenance.json        # Pillar 5 — PDB/UniProt ID, SHA-256, method
+        ├── literature_check.{json,md}       # Pillar 5 — PubMed decision gate
+        └── plasmid_module{1,2,3}.png        # Plasmid module diagrams
 ```
 
 > `generate_pdf.py` renders `Journal_Manuscript_2026.md` to submission-formatted PDF via `reportlab` and `fpdf2`; it is the only script in the `simulations/` folder that does not produce a model figure.
 
-> `scripts_check_tex.py` performs a structural sanity check on `Journal_Manuscript_2026.tex` (brace balance + LaTeX `\\begin`/`\\end` environment balance) without invoking a full LaTeX toolchain.
+> [`scripts/scripts_check_tex.py`](scripts/scripts_check_tex.py) performs a structural sanity check on `Journal_Manuscript_2026.tex` (brace balance + LaTeX `\\begin`/`\\end` environment balance + citation ↔ bibliography cross-check) without invoking a full LaTeX toolchain. It resolves the manuscript path relative to itself, so it runs from any working directory.
 
 ---
 
@@ -146,11 +174,14 @@ python simulations/biosafety_mutation_model.py
 python simulations/biosafety_sensitivity.py
 python simulations/biosafety_lhs.py            # Pillar 4c — 10,000 LHS samples
 
+# Render plasmid module diagrams
+python simulations/generate_circuit_diagrams.py
+
 # Generate the final PDF
 python simulations/generate_pdf.py
 
 # (Optional) Sanity-check the manuscript LaTeX file
-python scripts_check_tex.py
+python scripts/scripts_check_tex.py
 ```
 
 > The structural-evaluation pipeline in `simulations/structural_pipeline/` is run end-to-end by invoking its individual modules in order: `fetch_nemA_structure.py` → `literature_check.py` → `analyze_active_site.py` → `prepare_docking.py` → `scan_contact_disruption.py` → `geometric_placement.py`. Each module writes its own output into `simulations/structural_pipeline/data/` and `simulations/results/`.

@@ -3,11 +3,12 @@ SJWP 2026 project. See individual module docstrings for details.
 
 Modules:
   fetch_nemA_structure.py    — download PDB 8BPQ and extract chain A
+  literature_check.py        — pre-docking PubMed sanity check (decision gate)
   analyze_active_site.py     — FMN pocket and UniProt-annotated residues
+  prepare_docking.py         — prepare WT and ILE328ALA .pdbqt for Vina
   scan_contact_disruption.py — dimensionless contact-disruption score
-  literature_check.py        — pre-docking literature sanity check
-  prepare_docking.py         — prepare WT and mutant .pdbqt for Vina
-  dock_chromate.py           — run Vina docking and analyze poses
+  geometric_placement.py     — scipy.optimize placement of CrO4(2-)
+                               (Vina fallback; Cr is not a built-in Vina type)
   utils.py                   — shared biopython helpers
 
 Note: this pipeline is a STRUCTURAL CONSISTENCY CHECK on the engineering
